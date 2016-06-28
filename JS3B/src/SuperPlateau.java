@@ -38,7 +38,9 @@ public class SuperPlateau {
 	public int[][] getJeu(){
 		return this.test.getJeu();
 	}
-	//
+	public void setJeu(int[][] tab){
+		this.test.setJeu(tab);
+	}
 
 	public void close() {
 		test.close();

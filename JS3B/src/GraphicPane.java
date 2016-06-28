@@ -55,7 +55,7 @@ class GraphicPane extends JPanel {
 				
 				//images[i]=new ImageIcon(gif[i]);
 				}
-			dimImage=images[0].getIconHeight()+2;
+			dimImage=images[0].getIconHeight();
 			setGraphicSize() ;
 			this.setBackground(Color.LIGHT_GRAY);
 		} 

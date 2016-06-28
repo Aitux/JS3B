@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class Terrain {
 	Case[][] tableau;
@@ -30,6 +31,28 @@ public class Terrain {
 			res += "\n";
 		}
 		return res;
+	}
+	public int[][] getJeu(){
+		int[][] resultat = new int[tableau[0].length][tableau.length];
+		
+		for(int l=0 ; l<tableau.length ; l++){
+			for(int c=0; c<tableau[0].length ; c++){
+				
+					if( tableau[l][c].getElement() instanceof Ciel){ 
+						resultat[c][l]=1 ;
+						if(l<3){
+							Random Rand = new Random();
+								if(Rand.nextInt(100)>85){
+									resultat[c][l] = 2; //change le ciel en ciel nuageux
+								}
+							}
+						}
+					if( tableau[l][c].getElement() instanceof Terre){ resultat[c][l]=3 ;}
+					
+			}
+		}
+		resultat[perso.getCoordonnees().getOrdonnee()][perso.getCoordonnees().getAbscisse()] = 4;
+		return resultat;
 	}
 	
 	static public void main(String[] args){

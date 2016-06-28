@@ -5,7 +5,6 @@ import javax.swing.ImageIcon;
 public class Personnage {
 	
 	private Coordonnees coordonnees;
-	private ImageIcon img;
 	int nbVies;
 	ArrayList<Bonus> bonus;
 	private String representation;
@@ -21,10 +20,6 @@ public class Personnage {
 
 	public void setCoordonnees(Coordonnees coordonnees) {
 		this.coordonnees = coordonnees;
-	}
-
-	public void setImg(ImageIcon img) {
-		this.img = img;
 	}
 
 	public String getRepresentation() {
