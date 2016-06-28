@@ -32,6 +32,9 @@ public class Case {
 	public void setPerso(Personnage perso) {
 		this.perso = perso;
 	}
+	public boolean isNaviguable(){
+		return element.isAccessible();
+	}
 	
 	public String toString(){
 		if(perso != null){
@@ -45,4 +48,5 @@ public class Case {
 			}
 		}
 	}
+	
 }

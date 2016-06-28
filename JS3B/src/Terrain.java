@@ -39,14 +39,12 @@ public class Terrain {
 			for(int c=0; c<tableau[0].length ; c++){
 				
 					if( tableau[l][c].getElement() instanceof Ciel){ 
-						resultat[c][l]=1 ;
-						if(l<3){
-							Random Rand = new Random();
-								if(Rand.nextInt(100)>85){
-									resultat[c][l] = 2; //change le ciel en ciel nuageux
-								}
-							}
+						if(((Ciel) tableau[l][c].getElement()).isNuageux()){
+							resultat[c][l]=2;
+						}else{
+							resultat[c][l]=1;
 						}
+					}	
 					if( tableau[l][c].getElement() instanceof Terre){ resultat[c][l]=3 ;}
 					
 			}

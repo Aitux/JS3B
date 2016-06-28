@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 public class SuperPlateau {
@@ -47,6 +48,11 @@ public class SuperPlateau {
 	}
 	public void setPreferedSize(int largeur,int longueur){
 		this.test.setPreferedSize(largeur, longueur);
+		
+	}
+	public KeyEvent waitKeyEvent() {
+		
+		return this.test.waitKeyEvent();
 		
 	}
 	

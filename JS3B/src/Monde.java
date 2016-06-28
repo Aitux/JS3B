@@ -17,6 +17,12 @@ public class Monde {
 		System.out.println(m.terrain.toString());
 		m.p.setJeu(m.terrain.getJeu());
 		m.p.affichage();
+		Deplacement deplacement=new Deplacement(m);
+		while(true){
+			deplacement.deplacement();
+			m.p.setJeu(m.terrain.getJeu());
+			m.p.affichage();
+		}
 		
 	}
 }

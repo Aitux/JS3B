@@ -21,6 +21,18 @@ public class Personnage {
 	public void setCoordonnees(Coordonnees coordonnees) {
 		this.coordonnees = coordonnees;
 	}
+	public void setAbscisse(int abs){
+		this.coordonnees.setAbscisse(abs);
+	}
+	public int getAbscisse(){
+		return this.coordonnees.getAbscisse();
+	}
+	public void setOrdonnee(int ord){
+		this.coordonnees.setOrdonnee(ord);
+	}
+	public int getOrdonnee(){
+		return this.coordonnees.getOrdonnee();
+	}
 
 	public String getRepresentation() {
 		return representation;

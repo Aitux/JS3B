@@ -13,7 +13,9 @@ public class Element {
 	public String getRepresentation() {
 		return representation;
 	}
-
+	public void setAccessible(boolean a){
+		accessible = a ;
+	}
 
 	public void setRepresentation(String representation) {
 		this.representation = representation;

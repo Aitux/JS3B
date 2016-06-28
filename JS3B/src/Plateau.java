@@ -216,6 +216,16 @@ public class Plateau {
 		}
 		return currentEvent ;
 	}
+	
+	public KeyEvent waitKeyEvent() {
+		prepareWaitEvent() ;
+		while (currentEvent == null  || currentEvent instanceof MouseEvent) {
+			
+			Thread.yield() ;	// Redonne la main à Swing pour gérer les événements
+		}
+		KeyEvent e = (KeyEvent) currentEvent;
+		return e ;
+	}
 	/**
 	 * Affiche un message dans la partie texte du plateau.
 	 * Si le plateau a été construit sans zone texte, cette méthode est sans effet.
