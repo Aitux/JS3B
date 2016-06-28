@@ -16,6 +16,11 @@ public class Ciel extends Element{
 			}
 		this.setAccessible(true);
 	}
+	public Ciel(boolean nuage){
+		this();
+		setNuageux(nuage);
+		
+	}
 
 	public boolean isNuageux() {
 		return nuageux;

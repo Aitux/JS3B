@@ -17,7 +17,10 @@ public class Terrain {
 				if( l == tableau.length-1){
 					tableau[l][c] = new Case( new Terre() );
 				}else{
-					tableau[l][c] = new Case( new Ciel() );
+					tableau[l][c] = new Case( new Ciel(false) );
+					if( l < 3 ){
+						tableau[l][c] = new Case( new Ciel() );
+					}
 				}
 			}
 		}
