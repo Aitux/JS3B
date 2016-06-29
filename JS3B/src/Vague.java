@@ -47,7 +47,7 @@ public class Vague {
 	public void nouvelleDerniereColonne(){
 		for(int l = 0 ; l < monde.terrain.tableau.length ; l++){
 			for(int c = monde.terrain.tableau[0].length-1 ; c < monde.terrain.tableau[0].length ; c++){
-				monde.terrain.tableau[l][c] = new Case(new Ciel(false));
+				monde.terrain.tableau[l][c] = new Case(new Ciel(false,false));
 				if( l < 3 ){
 					monde.terrain.tableau[l][c] = new Case(new Ciel());
 				}

@@ -43,5 +43,15 @@ public class Deplacement {
 			}
 			monde.terrain.tableau[monde.terrain.perso.getAbscisse()][monde.terrain.perso.getOrdonnee()].setPerso(tmp);
 		}
+		verif();
+	}
+	
+	public void verif(){
+		if(monde.terrain.tableau[monde.terrain.perso.getAbscisse()][monde.terrain.perso.getOrdonnee()].getElement() instanceof Ciel ){
+			if( ((Ciel) (monde.terrain.tableau[monde.terrain.perso.getAbscisse()][monde.terrain.perso.getOrdonnee()].getElement())).isOiseaux() ){
+				monde.terrain.perso.setNbVies(monde.terrain.perso.getNbVies()-1);
+			}
+		}
 	}
 }
+

@@ -17,9 +17,10 @@ public class Terrain {
 				if( l == tableau.length-1){
 					tableau[l][c] = new Case( new Terre() );
 				}else{
-					tableau[l][c] = new Case( new Ciel(false) );
 					if( l < 3 ){
 						tableau[l][c] = new Case( new Ciel() );
+					}else{
+						tableau[l][c] = new Case( new Ciel(false,false) );
 					}
 				}
 			}
@@ -42,19 +43,23 @@ public class Terrain {
 			for(int c=0; c<tableau[0].length ; c++){
 				
 					if( tableau[l][c].getElement() instanceof Ciel){ 
-						if(((Ciel) tableau[l][c].getElement()).isNuageux()){
+						if( ((Ciel) tableau[l][c].getElement()).isNuageux() ){
 							resultat[l][c] = 2;
 						}else{
+							if(((Ciel) tableau[l][c].getElement()).isOiseaux()){
+								resultat[l][c] = 3;
+							}else{
 							resultat[l][c] = 1;
+							}
 						}
 					}	
 					if( tableau[l][c].getElement() instanceof Terre){ 
-						resultat[l][c] = 3 ;
+						resultat[l][c] = 4 ;
 						}
 					
 			}
 		}
-		resultat[perso.getCoordonnees().getAbscisse()][perso.getCoordonnees().getOrdonnee()] = 4;
+		resultat[perso.getCoordonnees().getAbscisse()][perso.getCoordonnees().getOrdonnee()] = 5;
 		return resultat;
 	}
 	

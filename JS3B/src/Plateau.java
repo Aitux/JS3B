@@ -104,16 +104,10 @@ public class Plateau {
 		window.setLocationRelativeTo(null);
 
 		// Caractéristiques initiales pour la fenetre.
-		window.setTitle("Plateau de jeu ("+lignes+"X"+colonnes+")");
+		window.setTitle("JS3B");
 		
 		window.setLayout(new BorderLayout());
-		// La fermeture de la fenetre ne fait que la cacher. 
-		// cf Javadoc setDefaultCloseOperation
-		//window.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
-		// Ajout des deux composants à la fenetre
-	
-		
 
 		window.getContentPane().add(graphic, BorderLayout.NORTH);
 		if (withTextArea) {
@@ -296,7 +290,7 @@ public class Plateau {
 	private void resizeFromGraphic() {
 		Dimension dim = graphic.getGraphicSize() ;
 		if (console == null) {
-			dim.height += 10 ;
+			//dim.height += 10 ;
 		} else {
 			dim.height += 150 ;
 		}

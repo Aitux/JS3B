@@ -22,7 +22,7 @@ public class Partie {
 	public static void main(String[] args) throws InterruptedException{
 		Partie p = new Partie();
 		Vague vague= new Vague(p.monde);
-		while(true){
+		while(p.monde.terrain.perso.getNbVies() > 0){
 			p.tour();
 			vague.shift(1);
 		}
