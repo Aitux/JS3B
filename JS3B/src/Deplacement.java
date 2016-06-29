@@ -5,7 +5,7 @@ public class Deplacement {
 
 	private Monde monde;
 	private Personnage perso;
-	final static int TEMPS=800;
+	
 	
 	public Deplacement(){
 		
@@ -23,8 +23,9 @@ public class Deplacement {
 	private void deplacementBas(){
 		monde.terrain.perso.setAbscisse(monde.terrain.perso.getAbscisse()+1);
 	}
-	public void deplacement(){
-		KeyEvent event=(KeyEvent) monde.p.waitKeyEvent(1000);
+	public void deplacement(int temps){
+		KeyEvent event=(KeyEvent) monde.p.waitKeyEvent(temps);
+		
 		
 		if(event != null){
 			Personnage tmp=monde.terrain.tableau[monde.terrain.perso.getAbscisse()][monde.terrain.perso.getOrdonnee()].getPerso();

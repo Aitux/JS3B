@@ -229,12 +229,13 @@ public class Plateau {
 	public KeyEvent waitKeyEvent(int timeout) {
 		int time = 0 ;
 		prepareWaitEvent() ;
-		while ((currentEvent == null) && (time < timeout) && currentEvent instanceof MouseEvent ) {
+		while ((currentEvent == null) && (time < timeout) || currentEvent instanceof MouseEvent ) {
 			
 			try {
 				Thread.sleep(100) ;	// Cette instruction - en plus du délai induit - permet à Swing de traiter les événements GUI 
 			} catch (InterruptedException e) {
 				e.printStackTrace();
+				System.out.println("pas de sleep");
 			}
 			time += 100 ;
 		}

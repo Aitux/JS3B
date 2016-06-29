@@ -4,7 +4,7 @@ public class Partie {
 	Monde monde;
 	private int nbVagues;
 	private boolean abandon;
-	final static int TEMPS=800;
+	static int TEMPS=800;
 	
 	public Partie(){
 		monde = new Monde();
@@ -13,15 +13,10 @@ public class Partie {
 	}
 	
 	public void tour() throws InterruptedException{
-		int time=0;
-	
-		while(time<TEMPS){
-			monde.refresh();
-			monde.deplacement.deplacement();
-			Thread.sleep(800);
-			time += 800;
-		}
 		
+			monde.refresh();
+			monde.deplacement.deplacement(TEMPS);
+			
 	}
 	
 	public static void main(String[] args) throws InterruptedException{

@@ -25,7 +25,7 @@ public class Monde {
 		m.refresh();
 		Deplacement deplacement=new Deplacement(m);
 		while(m.terrain.perso.getNbVies()>0){
-			deplacement.deplacement();
+			deplacement.deplacement(1000);
 			m.refresh();
 		}
 		
