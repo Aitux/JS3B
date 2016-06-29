@@ -4,8 +4,8 @@ public class Terrain {
 	Case[][] tableau;
 	Personnage perso;
 	
-	Terrain(int h, int l){
-		tableau = new Case[h][l];
+	Terrain(int l, int c){
+		tableau = new Case[l][c];
 		perso = new Hero();
 		perso.setCoordonnees(new Coordonnees( l/2 , 3 )); //placement temporaire;
 		initialiser();
@@ -36,28 +36,31 @@ public class Terrain {
 		return res;
 	}
 	public int[][] getJeu(){
-		int[][] resultat = new int[tableau[0].length][tableau.length];
+		int[][] resultat = new int[tableau.length][tableau[0].length];
 		
 		for(int l=0 ; l<tableau.length ; l++){
 			for(int c=0; c<tableau[0].length ; c++){
 				
 					if( tableau[l][c].getElement() instanceof Ciel){ 
 						if(((Ciel) tableau[l][c].getElement()).isNuageux()){
-							resultat[c][l]=2;
+							resultat[l][c] = 2;
 						}else{
-							resultat[c][l]=1;
+							resultat[l][c] = 1;
 						}
 					}	
-					if( tableau[l][c].getElement() instanceof Terre){ resultat[c][l]=3 ;}
+					if( tableau[l][c].getElement() instanceof Terre){ 
+						resultat[l][c] = 3 ;
+						}
 					
 			}
 		}
-		resultat[perso.getCoordonnees().getOrdonnee()][perso.getCoordonnees().getAbscisse()] = 4;
+		resultat[perso.getCoordonnees().getAbscisse()][perso.getCoordonnees().getOrdonnee()] = 4;
 		return resultat;
 	}
 	
 	static public void main(String[] args){
 		Terrain t = new Terrain(10 , 10);
 		System.out.println(t.toString());
+		
 	}
 }

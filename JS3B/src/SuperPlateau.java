@@ -6,11 +6,11 @@ import java.awt.event.MouseEvent;
 public class SuperPlateau {
 	Plateau test;
 	
-	SuperPlateau(String[] gifs, int taille){
-		this.test = new Plateau(gifs, taille) ;
+	SuperPlateau(String[] gifs, int lignes, int colonnes){
+		this.test = new Plateau(gifs, lignes, colonnes) ;
 	}
-	SuperPlateau(String[] gifs, int taille,boolean textArea){
-		this.test = new Plateau(gifs, taille,textArea) ;
+	SuperPlateau(String[] gifs, int lignes, int colonnes,boolean textArea){
+		this.test = new Plateau(gifs, lignes , colonnes,textArea) ;
 	}
 	
 	

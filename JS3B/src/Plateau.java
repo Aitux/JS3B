@@ -80,8 +80,8 @@ public class Plateau {
 	 * @param gif tableau 1D des chemins des fichiers des différentes images affichées.
 	 * @param taille dimension (en nombre de cellules) d'un côté du plateau.
 	 */
-	public Plateau(String[] gif,int taille){
-		this(gif, taille, false) ;
+	public Plateau(String[] gif,int lignes, int colonnes){
+		this(gif, lignes, colonnes, false) ;
 	}
 	/**
 	 * Construit un plateau de jeu vide de dimension taille x taille aec une éventuelle zone de texte associée.
@@ -94,17 +94,17 @@ public class Plateau {
 	 *        Le plateau s'ajustera en fonction des dimensions du tableau jeu.
 	 * @param withTextArea Indique si une zone de texte doit être affichée.
 	 */
-	public Plateau(String[] gif,int taille, boolean withTextArea){
+	public Plateau(String[] gif,int lignes, int colonnes, boolean withTextArea){
 		// Instancie la fenetre principale et et les deux composants.
 		window = new JFrame() ;
-		graphic = new GraphicPane(gif, taille) ;
+		graphic = new GraphicPane(gif, lignes,colonnes) ;
 		console = null ;
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.pack();
 		window.setLocationRelativeTo(null);
 
 		// Caractéristiques initiales pour la fenetre.
-		window.setTitle("Plateau de jeu ("+taille+"X"+taille+")");
+		window.setTitle("Plateau de jeu ("+lignes+"X"+colonnes+")");
 		
 		window.setLayout(new BorderLayout());
 		// La fermeture de la fenetre ne fait que la cacher. 

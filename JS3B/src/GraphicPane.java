@@ -32,13 +32,13 @@ class GraphicPane extends JPanel {
 	 * @param gif tableau 1D des chemins des fichiers des différentes images affichées.
 	 * @param taille dimension (en nombre de cellules) d'un côté du plateau.
 	 */
-	public GraphicPane(String[] gif,int taille){
+	public GraphicPane(String[] gif,int lignes, int colonnes){
 		jeu = null ;
 		// TODO Rendre la spécification de taille optionnelle (la calculer à partir du tableau d'entier)
 		// TODO Affichage d'un message d'erreur si fichier non trouvé.
 		// TODO Vérifier l'uniformité de taille des images	
-		nbLig = taille ;
-		nbCol = taille ;
+		nbLig = lignes ;
+		nbCol = colonnes ;
 		dimImage = 15 ; // Taille par défaut d'une case.
 		if (gif!=null){
 			nbImages=gif.length;
@@ -87,8 +87,8 @@ class GraphicPane extends JPanel {
 			g.setColor( Color.white );
 			while ((h<size.height) && (lg < nbLig)) {
 				while ((w<size.width) && (col < nbCol)) {
-					if (jeu[col][lg]!=0)
-						g.drawImage(images[jeu[col][lg]-1].getImage(),w,h,null);
+					if (jeu[lg][col]!=0)
+						g.drawImage(images[jeu[lg][col]-1].getImage(),w,h,null);
 					else
 						g.drawRect(w-1, h-1, dimImage-2, dimImage-2);
 					w+=dimImage;
@@ -114,8 +114,8 @@ class GraphicPane extends JPanel {
 		// Calcule nbLig et nbCol en fonction de la taille réelle du tableau d'entier
 		if (jeu != null) {
 			this.jeu=jeu;	
-			nbCol = jeu.length ;
-			nbLig = jeu[0].length ;
+			nbLig = jeu.length ;
+			nbCol = jeu[0].length ;
 			setGraphicSize() ;
 		}
 	}

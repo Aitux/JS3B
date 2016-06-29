@@ -1,7 +1,7 @@
 
 public class Monde {
 	public final static int HAUTEUR = 10;
-	public final static int LONGUEUR = 10;
+	public final static int LONGUEUR = 20;
 	static String[] imagesjeu={"ciel.png","cielnuageux.png","terre.png","hero.png"};
 	
 	Terrain terrain;
@@ -12,7 +12,7 @@ public class Monde {
 	
 	public Monde(){
 		terrain = new Terrain( HAUTEUR , LONGUEUR) ;
-		p=new SuperPlateau(imagesjeu, HAUTEUR);
+		p=new SuperPlateau(imagesjeu, HAUTEUR , LONGUEUR);
 		deplacement = new Deplacement(this);
 	}
 	public void refresh(){
