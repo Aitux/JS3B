@@ -1,7 +1,7 @@
 
 public class Monde {
-	public final static int HAUTEUR = 10;
-	public final static int LONGUEUR = 20;
+	public final static int HAUTEUR = 12;
+	public final static int LONGUEUR = 25;
 	static String[] imagesjeu={"ciel.png","cielnuageux.png","terre.png","hero.png"};
 	
 	Terrain terrain;
