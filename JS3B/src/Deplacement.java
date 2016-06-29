@@ -5,6 +5,7 @@ public class Deplacement {
 
 	private Monde monde;
 	private Personnage perso;
+	final static int TEMPS=800;
 	
 	public Deplacement(){
 		
@@ -23,20 +24,23 @@ public class Deplacement {
 		monde.terrain.perso.setAbscisse(monde.terrain.perso.getAbscisse()+1);
 	}
 	public void deplacement(){
-		KeyEvent event=(KeyEvent) monde.p.waitKeyEvent();
-		Personnage tmp=monde.terrain.tableau[monde.terrain.perso.getAbscisse()][monde.terrain.perso.getOrdonnee()].getPerso();
-		monde.terrain.tableau[monde.terrain.perso.getAbscisse()][monde.terrain.perso.getOrdonnee()].setPerso(null);
-		if(event.getKeyCode() == KeyEvent.VK_UP){
-			if( monde.terrain.perso.getAbscisse() > 0 && monde.terrain.tableau[perso.getAbscisse()-1][perso.getOrdonnee()].isNaviguable()){
-				deplacementHaut();
-			}
-		}else{
-			if(event.getKeyCode() == KeyEvent.VK_DOWN){
-				if( monde.terrain.perso.getAbscisse() < monde.terrain.tableau[0].length-1 && monde.terrain.tableau[perso.getAbscisse()+1][perso.getOrdonnee()].isNaviguable() ){
-					deplacementBas();
+		KeyEvent event=(KeyEvent) monde.p.waitKeyEvent(1000);
+		
+		if(event != null){
+			Personnage tmp=monde.terrain.tableau[monde.terrain.perso.getAbscisse()][monde.terrain.perso.getOrdonnee()].getPerso();
+			monde.terrain.tableau[monde.terrain.perso.getAbscisse()][monde.terrain.perso.getOrdonnee()].setPerso(null);
+			if(event.getKeyCode() == KeyEvent.VK_UP){
+				if( monde.terrain.perso.getAbscisse() > 0 && monde.terrain.tableau[perso.getAbscisse()-1][perso.getOrdonnee()].isNaviguable()){
+					deplacementHaut();
+				}
+			}else{
+				if(event.getKeyCode() == KeyEvent.VK_DOWN){
+					if( monde.terrain.perso.getAbscisse() < monde.terrain.tableau[0].length-1 && monde.terrain.tableau[perso.getAbscisse()+1][perso.getOrdonnee()].isNaviguable() ){
+						deplacementBas();
+					}
 				}
 			}
+			monde.terrain.tableau[monde.terrain.perso.getAbscisse()][monde.terrain.perso.getOrdonnee()].setPerso(tmp);
 		}
-		monde.terrain.tableau[monde.terrain.perso.getAbscisse()][monde.terrain.perso.getOrdonnee()].setPerso(tmp);
 	}
 }

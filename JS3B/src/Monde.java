@@ -6,22 +6,27 @@ public class Monde {
 	
 	Terrain terrain;
 	SuperPlateau p;
+	boolean abandon;
+	Deplacement deplacement ;
 	
 	
 	public Monde(){
 		terrain = new Terrain( HAUTEUR , LONGUEUR) ;
 		p=new SuperPlateau(imagesjeu, HAUTEUR);
+		deplacement = new Deplacement(this);
+	}
+	public void refresh(){
+		p.setJeu(terrain.getJeu());
+		p.affichage();
 	}
 	public static void main(String[] args){
 		Monde m = new Monde();
 		System.out.println(m.terrain.toString());
-		m.p.setJeu(m.terrain.getJeu());
-		m.p.affichage();
+		m.refresh();
 		Deplacement deplacement=new Deplacement(m);
-		while(true){
+		while(m.terrain.perso.getNbVies()>0){
 			deplacement.deplacement();
-			m.p.setJeu(m.terrain.getJeu());
-			m.p.affichage();
+			m.refresh();
 		}
 		
 	}

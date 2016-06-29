@@ -5,12 +5,12 @@ import javax.swing.ImageIcon;
 public class Personnage {
 	
 	private Coordonnees coordonnees;
-	int nbVies;
+	private int nbVies;
 	ArrayList<Bonus> bonus;
 	private String representation;
 	
 	public Personnage(){
-		nbVies = 3;
+		setNbVies(3);
 		representation = "P";
 	}
 
@@ -40,5 +40,13 @@ public class Personnage {
 
 	public void setRepresentation(String representation) {
 		this.representation = representation;
+	}
+
+	public int getNbVies() {
+		return nbVies;
+	}
+
+	public void setNbVies(int nbVies) {
+		this.nbVies = nbVies;
 	}
 }

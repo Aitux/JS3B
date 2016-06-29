@@ -55,7 +55,11 @@ public class SuperPlateau {
 		return this.test.waitKeyEvent();
 		
 	}
-	
+public KeyEvent waitKeyEvent(int timeout) {
+		
+		return this.test.waitKeyEvent(timeout);
+		
+	}
 	
 }
 	

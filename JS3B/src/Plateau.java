@@ -226,6 +226,21 @@ public class Plateau {
 		KeyEvent e = (KeyEvent) currentEvent;
 		return e ;
 	}
+	public KeyEvent waitKeyEvent(int timeout) {
+		int time = 0 ;
+		prepareWaitEvent() ;
+		while ((currentEvent == null) && (time < timeout) && currentEvent instanceof MouseEvent ) {
+			
+			try {
+				Thread.sleep(100) ;	// Cette instruction - en plus du délai induit - permet à Swing de traiter les événements GUI 
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			time += 100 ;
+		}
+		KeyEvent e = (KeyEvent) currentEvent;
+		return e ;
+	}
 	/**
 	 * Affiche un message dans la partie texte du plateau.
 	 * Si le plateau a été construit sans zone texte, cette méthode est sans effet.

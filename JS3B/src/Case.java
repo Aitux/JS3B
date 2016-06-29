@@ -3,11 +3,13 @@ public class Case {
 	private Element element;
 	private Bonus bonus;
 	private Personnage perso;
+	private boolean ennemi;
 	
 	public Case(){
-		
+		ennemi = false;
 	}
 	public Case(Element e){
+		this();
 		element = e;
 	}
 	public Case(Element e, Bonus b){
@@ -47,6 +49,12 @@ public class Case {
 				return element.getRepresentation();
 			}
 		}
+	}
+	public boolean isEnnemi() {
+		return ennemi;
+	}
+	public void setEnnemi(boolean ennemi) {
+		this.ennemi = ennemi;
 	}
 	
 }
