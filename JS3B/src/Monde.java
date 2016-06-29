@@ -25,15 +25,5 @@ public class Monde {
 		p.setJeu(terrain.getJeu());
 		p.affichage();
 	}
-	public static void main(String[] args){
-		Monde m = new Monde();
-		System.out.println(m.terrain.toString());
-		m.refresh();
-		Deplacement deplacement=new Deplacement(m);
-		while(m.terrain.perso.getNbVies()>0){
-			deplacement.deplacement(1000);
-			m.refresh();
-		}
-		
-	}
+	
 }
