@@ -26,5 +26,6 @@ public class Partie {
 			p.tour();
 			vague.shift(1);
 		}
+		p.monde.p.close();
 	}
 }
