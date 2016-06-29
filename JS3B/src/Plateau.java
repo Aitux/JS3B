@@ -100,11 +100,13 @@ public class Plateau {
 		graphic = new GraphicPane(gif, lignes,colonnes) ;
 		console = null ;
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setUndecorated(true);
+		window.toFront();
 		window.pack();
 		window.setLocationRelativeTo(null);
 
 		// Caractéristiques initiales pour la fenetre.
-		window.setTitle("JS3B");
+		//window.setTitle("JS3B");
 		
 		window.setLayout(new BorderLayout());
 

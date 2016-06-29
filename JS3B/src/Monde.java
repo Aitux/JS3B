@@ -1,7 +1,8 @@
+import java.awt.Toolkit;
 
 public class Monde {
-	public final static int HAUTEUR = 12;
-	public final static int LONGUEUR = 25;
+	public  static int HAUTEUR = 10;
+	public  static int LONGUEUR = 20;
 	static String[] imagesjeu={"ciel.png","cielnuageux.png","oiseaux.png","terre.png","hero.png"};
 	
 	Terrain terrain;
@@ -11,9 +12,14 @@ public class Monde {
 	
 	
 	public Monde(){
+		definirTaille();
 		terrain = new Terrain( HAUTEUR , LONGUEUR) ;
 		p=new SuperPlateau(imagesjeu, HAUTEUR , LONGUEUR);
 		deplacement = new Deplacement(this);
+	}
+	public void definirTaille(){
+		HAUTEUR = (Toolkit.getDefaultToolkit().getScreenSize().height - 40) / 64;
+		LONGUEUR = Toolkit.getDefaultToolkit().getScreenSize().width / 64;
 	}
 	public void refresh(){
 		p.setJeu(terrain.getJeu());
