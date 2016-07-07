@@ -16,6 +16,10 @@ public class Case {
 		this(e);
 		bonus = b;
 	}
+	public Case(Element e, Bonus b, Personnage p){
+		this(e,b);
+		perso = p;
+	}
 	public Element getElement(){
 		return element;
 	}
