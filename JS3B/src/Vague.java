@@ -1,32 +1,104 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Vague {
 	
 	Ennemi ennemi;
 	ArrayList<Bonus> bonus;
 	Monde monde;
+	private int decalages = 0 ;
+	private int espaceEntreEnnemi = 7 ;
+	private int espaceEntreNouvelEnvironnement = 50 ;
+	private int environnement = 1 ; //1 == nazi  || 2== KKK || 3 == Terro
 	
 	public Vague(Monde m){
 		monde = m ;
 		
 	}
+	public void genererNouvelEnvironnement(){
+		Random Rand= new Random();
+		
+		environnement = Rand.nextInt(3)+1 ;
+		
+	}
 	public void genererBonus(){ //TODO
 	
 	}
-	public void genererEnnemi(){ //TODO
-		
+	public void creerPassage(){
+		Random rand = new Random();
+		int ligne;
+		do{
+		ligne=rand.nextInt(monde.terrain.tableau.length-2);
+		}while( !(monde.terrain.tableau[ligne][monde.terrain.tableau[0].length-1].isEnnemi() ) );
+		monde.terrain.tableau[ligne][monde.terrain.tableau[0].length-1].setEnnemi(null);
 	}
-	public void genererBonusEtEnnemi(){
-		genererBonus();
-		genererEnnemi();
-	}
-	public void placerEnnemi(){
-		if(ennemi != null && ennemi.caseDangereuses != null){
-			for(int cpt=0; cpt < ennemi.caseDangereuses.size() ; cpt++){
-				monde.terrain.tableau[ennemi.caseDangereuses.get(cpt).getAbscisse()][ennemi.caseDangereuses.get(cpt).getOrdonnee()].setEnnemi(true);
+	public void genererNazi(){
+		for(int l = 0 ; l < monde.terrain.tableau.length ; l++){
+			for(int c = monde.terrain.tableau[0].length-1 ; c < monde.terrain.tableau[0].length ; c++){
+				monde.terrain.tableau[l][c].setEnnemi(new AvionNazi() ); 
+				if( l == monde.terrain.tableau.length-2 ){
+						monde.terrain.tableau[l][c].setEnnemi(new TankNazi() ); 
+				}
+				if( l == monde.terrain.tableau.length-1 ){
+					monde.terrain.tableau[l][c] = new Case(new Terre());
+				}
 			}
 		}
+		for (int nbTrou = 0 ;nbTrou < 2; nbTrou++ ){
+			creerPassage();
+		}
+		
 	}
+	public void genererKKK(){
+		for(int l = 0 ; l < monde.terrain.tableau.length ; l++){
+			for(int c = monde.terrain.tableau[0].length-1 ; c < monde.terrain.tableau[0].length ; c++){
+				monde.terrain.tableau[l][c].setEnnemi(new CroixKKK() ); 
+				if( l == monde.terrain.tableau.length-2 ){
+						monde.terrain.tableau[l][c].setEnnemi(new MembreKKK() ); 
+				}
+				if( l == monde.terrain.tableau.length-1 ){
+					monde.terrain.tableau[l][c] = new Case(new Terre());
+				}
+			}
+		}
+		for (int nbTrou = 0 ;nbTrou < 2; nbTrou++ ){
+			creerPassage();
+		}
+	}
+	public void genererTerroriste(){
+		for(int l = 0 ; l < monde.terrain.tableau.length ; l++){
+			for(int c = monde.terrain.tableau[0].length-1 ; c < monde.terrain.tableau[0].length ; c++){
+				monde.terrain.tableau[l][c].setEnnemi(new AvionTerroriste() ); 
+				if( l == monde.terrain.tableau.length-2 ){
+						monde.terrain.tableau[l][c].setEnnemi(new Terroriste() ); 
+				}
+				if( l == monde.terrain.tableau.length-1 ){
+					monde.terrain.tableau[l][c] = new Case(new Terre());
+				}
+			}
+		}
+		for (int nbTrou = 0 ;nbTrou < 2; nbTrou++ ){
+			creerPassage();
+		}
+	}
+	
+	public void genererEnnemi(){ //TODO
+		if(environnement == 1){
+			genererNazi();
+		}else{
+			if(environnement == 2){
+				genererKKK();
+			}else{
+				if(environnement == 3){
+					genererTerroriste();
+				}
+			}
+		}
+		
+		
+	}
+	
+	
 	public void placerBonus(){
 		if(bonus != null){
 			for(int cpt=0 ; cpt < bonus.size() ; cpt++){
@@ -34,17 +106,20 @@ public class Vague {
 			}
 		}
 	}
-	public void placerBonusEtEnnemi(){
-		placerBonus();
-		placerEnnemi();
-	}
-	public void initialiserVague(){
-		genererBonusEtEnnemi();
-		placerBonusEtEnnemi();
-		
-		
-	}
+	
+	
 	public void nouvelleDerniereColonne(){
+		genererColonneVierge();
+		if((decalages % espaceEntreNouvelEnvironnement) == 0 ){
+			genererNouvelEnvironnement();
+		}
+		
+		if( (decalages % espaceEntreEnnemi) == 0 ){
+			genererEnnemi();
+		}
+		
+	}
+	private void genererColonneVierge() {
 		for(int l = 0 ; l < monde.terrain.tableau.length ; l++){
 			for(int c = monde.terrain.tableau[0].length-1 ; c < monde.terrain.tableau[0].length ; c++){
 				monde.terrain.tableau[l][c] = new Case(new Ciel(false,false));
@@ -67,6 +142,7 @@ public class Vague {
 				}
 			}
 			nouvelleDerniereColonne();
+			decalages += 1 ;
 			nombreDecalage -= 1 ;
 		}
 		monde.refresh();

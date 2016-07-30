@@ -55,7 +55,25 @@ public class Terrain {
 					}	
 					if( tableau[l][c].getElement() instanceof Terre){ 
 						resultat[l][c] = 4 ;
-						}
+					}
+					if( tableau[l][c].getEnnemi() instanceof AvionNazi){ 
+						resultat[l][c] = 6 ;
+					}
+					if( tableau[l][c].getEnnemi() instanceof TankNazi){ 
+						resultat[l][c] = 7 ;
+					}
+					if( tableau[l][c].getEnnemi() instanceof CroixKKK){ 
+						resultat[l][c] = 8 ;
+					}
+					if( tableau[l][c].getEnnemi() instanceof MembreKKK){ 
+						resultat[l][c] = 9 ;
+					}
+					if( tableau[l][c].getEnnemi() instanceof AvionTerroriste){ 
+						resultat[l][c] = 8 ;
+					}
+					if( tableau[l][c].getEnnemi() instanceof Terroriste){ 
+						resultat[l][c] = 9 ;
+					}
 					
 			}
 		}
