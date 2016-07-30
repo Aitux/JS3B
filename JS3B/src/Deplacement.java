@@ -51,6 +51,9 @@ public class Deplacement {
 			if( ((Ciel) (monde.terrain.tableau[monde.terrain.perso.getAbscisse()][monde.terrain.perso.getOrdonnee()].getElement())).isOiseaux() ){
 				monde.terrain.perso.setNbVies(monde.terrain.perso.getNbVies()-1);
 			}
+			if(monde.terrain.tableau[monde.terrain.perso.getAbscisse()][monde.terrain.perso.getOrdonnee()].getEnnemi() != null){
+				monde.terrain.perso.setNbVies(monde.terrain.perso.getNbVies()-1);
+			}
 		}
 	}
 }
