@@ -45,7 +45,7 @@ public class Vague {
 				}
 			}
 		}
-		for (int nbTrou = 0 ;nbTrou < 2; nbTrou++ ){
+		for (int nbTrou = 0 ;nbTrou < nbPassage; nbTrou++ ){
 			creerPassage();
 		}
 		
@@ -62,7 +62,7 @@ public class Vague {
 				}
 			}
 		}
-		for (int nbTrou = 0 ;nbTrou < 2; nbTrou++ ){
+		for (int nbTrou = 0 ;nbTrou < nbPassage; nbTrou++ ){
 			creerPassage();
 		}
 	}

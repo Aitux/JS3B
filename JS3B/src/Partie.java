@@ -4,7 +4,7 @@ public class Partie {
 	Monde monde;
 	private Vague vagues;
 	private boolean abandon;
-	static int TEMPS=200;
+	static int TEMPS=100;
 	
 	public Partie(){
 		monde = new Monde();
