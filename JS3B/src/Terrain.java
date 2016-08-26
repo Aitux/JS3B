@@ -69,10 +69,10 @@ public class Terrain {
 						resultat[l][c] = 9 ;
 					}
 					if( tableau[l][c].getEnnemi() instanceof AvionTerroriste){ 
-						resultat[l][c] = 8 ;
+						resultat[l][c] = 10 ;
 					}
 					if( tableau[l][c].getEnnemi() instanceof Terroriste){ 
-						resultat[l][c] = 9 ;
+						resultat[l][c] = 11 ;
 					}
 					
 			}
