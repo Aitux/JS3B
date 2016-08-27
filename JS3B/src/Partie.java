@@ -18,8 +18,8 @@ public class Partie {
 			monde.refresh();
 			monde.deplacement.deplacement(TEMPS);
 			vagues.shift(1);
-			//System.out.println(CalcScore());
-	}
+			CalcScore();
+				}
 	
 	private int CalcScore(){
 		score = monde.deplacement.getScoreN() + vagues.getScoreP();
