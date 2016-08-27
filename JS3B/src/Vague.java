@@ -7,7 +7,7 @@ public class Vague {
 	ArrayList<Bonus> bonus;
 	Monde monde;
 	private int decalages = 0 ;
-	private int espaceEntreEnnemi = 5 ;
+	private int espaceEntreEnnemi = 15 ;
 	private int espaceEntreNouvelEnvironnement = 50 ;
 	private int environnement = 3 ; //1 == nazi  || 2== KKK || 3 == Terro
 	private int nbPassage = 5;
