@@ -116,11 +116,16 @@ public class Vague {
 		genererColonneVierge();
 		if((decalages % espaceEntreNouvelEnvironnement) == 0 ){
 			genererNouvelEnvironnement();
-			scoreP ++;
+			
+				
+			
 		}
 		
 		if( (decalages % espaceEntreEnnemi) == 0 ){
 			genererEnnemi();
+			if(decalages>0){
+				scoreP ++;
+			}
 		}
 		
 	}

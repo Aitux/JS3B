@@ -5,7 +5,7 @@ public class Partie {
 	private Vague vagues;
 	private boolean abandon;
 	private int score;
-	static int TEMPS=100;
+	static int TEMPS=1;
 	
 	public Partie(){
 		monde = new Monde();
@@ -18,7 +18,7 @@ public class Partie {
 			monde.refresh();
 			monde.deplacement.deplacement(TEMPS);
 			vagues.shift(1);
-			System.out.println(CalcScore());
+			//System.out.println(CalcScore());
 	}
 	
 	private int CalcScore(){
@@ -31,6 +31,7 @@ public class Partie {
 		while(p.monde.terrain.perso.getNbVies() > 0){
 			p.tour();
 		}
+		System.out.println(p.CalcScore());
 		p.monde.p.close();
 	}
 }
