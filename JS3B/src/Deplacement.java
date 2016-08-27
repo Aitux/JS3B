@@ -5,6 +5,7 @@ public class Deplacement {
 
 	private Monde monde;
 	private Personnage perso;
+	private int scoreN = 0;
 	
 	
 	public Deplacement(){
@@ -16,7 +17,9 @@ public class Deplacement {
 		perso= monde.terrain.perso ;
 	}
 	
-	
+	public int getScoreN(){
+		return scoreN;
+	}
 	private void deplacementHaut(){
 		monde.terrain.perso.setAbscisse(monde.terrain.perso.getAbscisse()-1);
 	}
@@ -50,9 +53,11 @@ public class Deplacement {
 		if(monde.terrain.tableau[monde.terrain.perso.getAbscisse()][monde.terrain.perso.getOrdonnee()].getElement() instanceof Ciel ){
 			if( ((Ciel) (monde.terrain.tableau[monde.terrain.perso.getAbscisse()][monde.terrain.perso.getOrdonnee()].getElement())).isOiseaux() ){
 				monde.terrain.perso.setNbVies(monde.terrain.perso.getNbVies()-1);
+				scoreN --;
 			}
 			if(monde.terrain.tableau[monde.terrain.perso.getAbscisse()][monde.terrain.perso.getOrdonnee()].getEnnemi() != null){
 				monde.terrain.perso.setNbVies(monde.terrain.perso.getNbVies()-1);
+				scoreN --;
 			}
 		}
 	}

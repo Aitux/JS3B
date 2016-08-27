@@ -4,6 +4,7 @@ public class Partie {
 	Monde monde;
 	private Vague vagues;
 	private boolean abandon;
+	private int score;
 	static int TEMPS=100;
 	
 	public Partie(){
@@ -16,14 +17,19 @@ public class Partie {
 		
 			monde.refresh();
 			monde.deplacement.deplacement(TEMPS);
-			
+			vagues.shift(1);
+			System.out.println(CalcScore());
+	}
+	
+	private int CalcScore(){
+		score = monde.deplacement.getScoreN() + vagues.getScoreP();
+		return score;
 	}
 	
 	public static void main(String[] args) throws InterruptedException{
 		Partie p = new Partie();
 		while(p.monde.terrain.perso.getNbVies() > 0){
 			p.tour();
-			p.vagues.shift(1);
 		}
 		p.monde.p.close();
 	}

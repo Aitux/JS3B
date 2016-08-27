@@ -11,7 +11,7 @@ public class Vague {
 	private int espaceEntreNouvelEnvironnement = 50 ;
 	private int environnement = 3 ; //1 == nazi  || 2== KKK || 3 == Terro
 	private int nbPassage = 5;
-	private int score =  0 ;	
+	private int scoreP =  0 ;
 	public Vague(Monde m){
 		monde = m ;
 		
@@ -99,6 +99,9 @@ public class Vague {
 		
 	}
 	
+	public int getScoreP(){
+		return scoreP;
+	}
 	
 	public void placerBonus(){
 		if(bonus != null){
@@ -113,6 +116,7 @@ public class Vague {
 		genererColonneVierge();
 		if((decalages % espaceEntreNouvelEnvironnement) == 0 ){
 			genererNouvelEnvironnement();
+			scoreP ++;
 		}
 		
 		if( (decalages % espaceEntreEnnemi) == 0 ){

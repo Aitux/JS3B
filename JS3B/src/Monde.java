@@ -13,7 +13,7 @@ public class Monde {
 	
 	public Monde(){
 		definirTaille();
-		terrain = new Terrain( HAUTEUR , LONGUEUR) ;
+		terrain = new Terrain( HAUTEUR - 1 , LONGUEUR) ;
 		p=new SuperPlateau(imagesjeu, HAUTEUR , LONGUEUR);
 		deplacement = new Deplacement(this);
 	}
