@@ -3,7 +3,7 @@ import java.awt.Toolkit;
 public class Monde {
 	public  static int HAUTEUR = 10;
 	public  static int LONGUEUR = 20;
-	static String[] imagesjeu={"ciel.png","cielnuageux.png","oiseaux.png","terre.png","hero.png","avionNazi.png","tankNazi.png","croixKKK.png","membreKKK.png","avionTerro.png","terrorist.png"};
+	static String[] imagesjeu={"ciel.png","cielnuageux.png","oiseaux.png","terre.png","hero.png","avionNazi.png","tankNazi.png","croixKKK.png","membreKKK.png","avionTerro.png","terrorist.png","maison1.png","maison2.png","maison3.png","sable.png","bitume.png","usine.png","palmier.png"};
 	
 	Terrain terrain;
 	SuperPlateau p;

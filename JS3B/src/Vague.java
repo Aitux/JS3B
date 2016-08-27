@@ -41,7 +41,7 @@ public class Vague {
 						monde.terrain.tableau[l][c].setEnnemi(new TankNazi() ); 
 				}
 				if( l == monde.terrain.tableau.length-1 ){
-					monde.terrain.tableau[l][c] = new Case(new Terre());
+					monde.terrain.tableau[l][c] = new Case(new Bitume());
 				}
 			}
 		}
@@ -74,7 +74,7 @@ public class Vague {
 						monde.terrain.tableau[l][c].setEnnemi(new Terroriste() ); 
 				}
 				if( l == monde.terrain.tableau.length-1 ){
-					monde.terrain.tableau[l][c] = new Case(new Terre());
+					monde.terrain.tableau[l][c] = new Case(new Sable());
 				}
 			}
 		}
@@ -92,6 +92,7 @@ public class Vague {
 			}else{
 				if(environnement == 3){
 					genererTerroriste();
+					
 				}
 			}
 		}
@@ -138,7 +139,33 @@ public class Vague {
 				}
 				else{
 					if( l == monde.terrain.tableau.length-1 ){
-						monde.terrain.tableau[l][c] = new Case(new Terre());
+						if(environnement == 1){
+							monde.terrain.tableau[l][c] = new Case(new Bitume());
+						}
+						if(environnement == 2){
+							monde.terrain.tableau[l][c] = new Case(new Terre());
+						}
+						if(environnement == 3){
+							monde.terrain.tableau[l][c] = new Case(new Sable());
+						}
+					}else{
+						if(l == monde.terrain.tableau.length-2 ){
+							Random rand = new Random();
+							int placerDecor=rand.nextInt(100);
+							if(placerDecor>90){
+								if( environnement == 1 ){
+									monde.terrain.tableau[l][c] = new Case(new Ciel(false, false, false , false, true));
+								}else{
+									if(environnement == 2){
+										monde.terrain.tableau[l][c] = new Case(new Ciel(false, false, true));
+									}else{
+										if(environnement == 3){
+											monde.terrain.tableau[l][c] = new Case(new Ciel(false, false, false , true));
+										}
+									}
+								}
+							}
+						}
 					}
 				}
 			}

@@ -49,10 +49,31 @@ public class Terrain {
 							if(((Ciel) tableau[l][c].getElement()).isOiseaux()){
 								resultat[l][c] = 3;
 							}else{
-							resultat[l][c] = 1;
+								if(((Ciel) tableau[l][c].getElement()).isMaison()){
+									
+									resultat[l][c] = 12+((Ciel) tableau[l][c].getElement()).getNumeroDecor() ;
+								}else{
+									if(((Ciel) tableau[l][c].getElement()).isPalmier() ){
+										
+										resultat[l][c] = 18 ;
+									}else{
+										if(((Ciel) tableau[l][c].getElement()).isUsine() ){
+											
+											resultat[l][c] = 17 ;
+										}else{
+											resultat[l][c] = 1;
+										}
+									}
+								}
 							}
 						}
-					}	
+					}
+					if(tableau[l][c].getElement() instanceof Sable){
+						resultat[l][c] = 15 ;
+					}
+					if(tableau[l][c].getElement() instanceof Bitume){
+						resultat[l][c] = 16 ;
+					}
 					if( tableau[l][c].getElement() instanceof Terre){ 
 						resultat[l][c] = 4 ;
 					}
