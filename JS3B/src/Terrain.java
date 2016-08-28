@@ -3,10 +3,12 @@ import java.util.Random;
 public class Terrain {
 	Case[][] tableau;
 	Personnage perso;
+	BarreScore bs;
 	
 	Terrain(int l, int c){
 		tableau = new Case[l][c];
 		perso = new Hero();
+		bs = new BarreScore(this);
 		perso.setCoordonnees(new Coordonnees( l/2 , 3 )); //placement temporaire;
 		initialiser();
 		tableau[l/2][3].setPerso(perso);
@@ -16,7 +18,7 @@ public class Terrain {
 			for(int c=0; c<tableau[0].length ; c++){
 				if( l == tableau.length-1){
 					tableau[l][c] = new Case( new Terre() );
-				}else{
+				}else{	
 					if( l < 3 ){
 						tableau[l][c] = new Case( new Ciel() );
 					}else{
@@ -49,10 +51,31 @@ public class Terrain {
 							if(((Ciel) tableau[l][c].getElement()).isOiseaux()){
 								resultat[l][c] = 3;
 							}else{
-							resultat[l][c] = 1;
+								if(((Ciel) tableau[l][c].getElement()).isMaison()){
+									
+									resultat[l][c] = 12+((Ciel) tableau[l][c].getElement()).getNumeroDecor() ;
+								}else{
+									if(((Ciel) tableau[l][c].getElement()).isPalmier() ){
+										
+										resultat[l][c] = 18 ;
+									}else{
+										if(((Ciel) tableau[l][c].getElement()).isUsine() ){
+											
+											resultat[l][c] = 17 ;
+										}else{
+											resultat[l][c] = 1;
+										}
+									}
+								}
 							}
 						}
-					}	
+					}
+					if(tableau[l][c].getElement() instanceof Sable){
+						resultat[l][c] = 15 ;
+					}
+					if(tableau[l][c].getElement() instanceof Bitume){
+						resultat[l][c] = 16 ;
+					}
 					if( tableau[l][c].getElement() instanceof Terre){ 
 						resultat[l][c] = 4 ;
 					}

@@ -1,7 +1,7 @@
-
 public class Partie {
 
 	Monde monde;
+	BarreScore barreScore;
 	private Vague vagues;
 	private boolean abandon;
 	private int score;
@@ -10,16 +10,16 @@ public class Partie {
 	public Partie(){
 		monde = new Monde();
 		vagues= new Vague(monde);
-		abandon = false ;
+		abandon = false;
+		barreScore = new BarreScore(monde.terrain);
 	}
 	
 	public void tour() throws InterruptedException{
-		
-			monde.refresh();
-			monde.deplacement.deplacement(TEMPS);
+			
 			vagues.shift(1);
-			CalcScore();
-			System.out.println(monde.terrain.toString());
+			monde.deplacement.deplacement(TEMPS);
+			monde.terrain.bs.setScore(CalcScore());
+			monde.refresh();
 				}
 	
 	private int CalcScore(){
@@ -33,6 +33,8 @@ public class Partie {
 			p.tour();
 		}
 		System.out.println(p.CalcScore());
+		Thread.sleep(2000);
 		p.monde.p.close();
 	}
 }
+

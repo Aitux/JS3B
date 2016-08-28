@@ -6,14 +6,14 @@ public class Vague {
 	Ennemi ennemi;
 	ArrayList<Bonus> bonus;
 	Monde monde;
-	private int decalages = 0 ;
+	private int decalages = 0;
 	private int espaceEntreEnnemi = 15 ;
-	private int espaceEntreNouvelEnvironnement = 50 ;
+	private int espaceEntreNouvelEnvironnement = 200 ;
 	private int environnement = 3 ; //1 == nazi  || 2== KKK || 3 == Terro
 	private int nbPassage = 5;
 	private int scoreP =  0 ;
 	public Vague(Monde m){
-		monde = m ;
+		monde = m;
 		
 	}
 	public void genererNouvelEnvironnement(){
@@ -41,7 +41,7 @@ public class Vague {
 						monde.terrain.tableau[l][c].setEnnemi(new TankNazi() ); 
 				}
 				if( l == monde.terrain.tableau.length-1 ){
-					monde.terrain.tableau[l][c] = new Case(new Terre());
+					monde.terrain.tableau[l][c] = new Case(new Bitume());
 				}
 			}
 		}
@@ -74,7 +74,7 @@ public class Vague {
 						monde.terrain.tableau[l][c].setEnnemi(new Terroriste() ); 
 				}
 				if( l == monde.terrain.tableau.length-1 ){
-					monde.terrain.tableau[l][c] = new Case(new Terre());
+					monde.terrain.tableau[l][c] = new Case(new Sable());
 				}
 			}
 		}
@@ -92,6 +92,7 @@ public class Vague {
 			}else{
 				if(environnement == 3){
 					genererTerroriste();
+					
 				}
 			}
 		}
@@ -123,7 +124,11 @@ public class Vague {
 		
 		if( (decalages % espaceEntreEnnemi) == 0 ){
 			genererEnnemi();
-			if(decalages>0){
+		}
+		
+		if( decalages >0){
+			if(decalages >  monde.terrain.tableau.length)
+			if( (decalages % espaceEntreEnnemi) == 2){
 				scoreP ++;
 			}
 		}
@@ -138,7 +143,33 @@ public class Vague {
 				}
 				else{
 					if( l == monde.terrain.tableau.length-1 ){
-						monde.terrain.tableau[l][c] = new Case(new Terre());
+						if(environnement == 1){
+							monde.terrain.tableau[l][c] = new Case(new Bitume());
+						}
+						if(environnement == 2){
+							monde.terrain.tableau[l][c] = new Case(new Terre());
+						}
+						if(environnement == 3){
+							monde.terrain.tableau[l][c] = new Case(new Sable());
+						}
+					}else{
+						if(l == monde.terrain.tableau.length-2 ){
+							Random rand = new Random();
+							int placerDecor=rand.nextInt(100);
+							if(placerDecor>90){
+								if( environnement == 1 ){
+									monde.terrain.tableau[l][c] = new Case(new Ciel(false, false, false , false, true));
+								}else{
+									if(environnement == 2){
+										monde.terrain.tableau[l][c] = new Case(new Ciel(false, false, true));
+									}else{
+										if(environnement == 3){
+											monde.terrain.tableau[l][c] = new Case(new Ciel(false, false, false , true));
+										}
+									}
+								}
+							}
+						}
 					}
 				}
 			}
