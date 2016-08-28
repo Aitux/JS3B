@@ -6,7 +6,7 @@ public class Vague {
 	Ennemi ennemi;
 	ArrayList<Bonus> bonus;
 	Monde monde;
-	private int decalages = 0 ;
+	private int decalages = 0;
 	private int espaceEntreEnnemi = 15 ;
 	private int espaceEntreNouvelEnvironnement = 200 ;
 	private int environnement = 3 ; //1 == nazi  || 2== KKK || 3 == Terro
@@ -14,6 +14,7 @@ public class Vague {
 	private int scoreP =  0 ;
 	public Vague(Monde m){
 		monde = m;
+		decalages = monde.terrain.tableau.length;
 	}
 	public void genererNouvelEnvironnement(){
 		Random Rand= new Random();
@@ -121,9 +122,12 @@ public class Vague {
 			
 		}
 		
-		if( (decalages % espaceEntreEnnemi) == 1 ){
+		if( (decalages % espaceEntreEnnemi) == 0 ){
 			genererEnnemi();
-			if(decalages>0){
+		}
+		
+		if( decalages >0){
+			if( (decalages % espaceEntreEnnemi) == 2){
 				scoreP ++;
 			}
 		}

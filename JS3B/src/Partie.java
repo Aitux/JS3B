@@ -16,11 +16,11 @@ public class Partie {
 	}
 	
 	public void tour() throws InterruptedException{
-		
-			monde.refresh();
-			monde.deplacement.deplacement(TEMPS);
+			
 			vagues.shift(1);
+			monde.deplacement.deplacement(TEMPS);
 			monde.terrain.bs.setScore(CalcScore());
+			monde.refresh();
 				}
 	
 	private int CalcScore(){
@@ -34,6 +34,7 @@ public class Partie {
 			p.tour();
 		}
 		System.out.println(p.CalcScore());
+		Thread.sleep(2000);
 		p.monde.p.close();
 	}
 }
