@@ -19,6 +19,7 @@ public class Partie {
 			monde.deplacement.deplacement(TEMPS);
 			vagues.shift(1);
 			CalcScore();
+			System.out.println(monde.terrain.toString());
 				}
 	
 	private int CalcScore(){
