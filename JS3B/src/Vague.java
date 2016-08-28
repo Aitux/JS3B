@@ -121,7 +121,7 @@ public class Vague {
 			
 		}
 		
-		if( (decalages % espaceEntreEnnemi) == 0 ){
+		if( (decalages % espaceEntreEnnemi) == 1 ){
 			genererEnnemi();
 			if(decalages>0){
 				scoreP ++;

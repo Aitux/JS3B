@@ -2,6 +2,7 @@
 public class Partie {
 
 	Monde monde;
+	BarreScore barreScore;
 	private Vague vagues;
 	private boolean abandon;
 	private int score;
@@ -11,6 +12,7 @@ public class Partie {
 		monde = new Monde();
 		vagues= new Vague(monde);
 		abandon = false;
+		barreScore = new BarreScore(monde.terrain);
 	}
 	
 	public void tour() throws InterruptedException{

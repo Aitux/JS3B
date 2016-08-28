@@ -21,28 +21,36 @@ public class BarreScore{
 	}
 	
 	public int[][] getJeu(int[][] jeu){
-		int[][] barS = new int[jeu.length][1];
+		setHP(terrain.perso.getNbVies());
+		
+		int[][] barS = new int[jeu.length+1][jeu[0].length];
 		for(int i = 0;i<barS.length;i++){
-			barS[i][0] = 1;
+			barS[0][i] = 1;
 		}
 		for(int i = 0;i<HP;i++){
-			barS[i][0] = 31;
+			barS[0][i] = 31;
 		}
 		for(int i = 0; i<scoreToArray().length;i++){
 			int[] tabS = scoreToArray();
 			switch(tabS[i]){
-			case 0: barS[i+8][0] = 19; break;
-			case 1: barS[i+8][0] = 20;break;
-			case 2: barS[i+8][0] = 21;break;
-			case 3: barS[i+8][0] = 22;break;
-			case 4: barS[i+8][0] = 23;break;
-			case 5: barS[i+8][0] = 24;break;
-			case 6: barS[i+8][0] = 25;break;
-			case 7: barS[i+8][0] = 26;break;
-			case 8: barS[i+8][0] = 27;break;
-			case 9: barS[i+8][0] = 28;break;
+			case 0: barS[0][i+8] = 19; break;
+			case 1: barS[0][i+8] = 20;break;
+			case 2: barS[0][i+8] = 21;break;
+			case 3: barS[0][i+8] = 22;break;
+			case 4: barS[0][i+8] = 23;break;
+			case 5: barS[0][i+8] = 24;break;
+			case 6: barS[0][i+8] = 25;break;
+			case 7: barS[0][i+8] = 26;break;
+			case 8: barS[0][i+8] = 27;break;
+			case 9: barS[0][i+8] = 28;break;
 			}
 		}
+		for( int l = 0; l<jeu.length; l++){
+			for(int c = 0 ; c<jeu[0].length ; c++){
+				barS[l+1][c]= jeu[l][c];
+			}
+		}
+		return barS ;
 	}
 	
 	public int getScore() {
