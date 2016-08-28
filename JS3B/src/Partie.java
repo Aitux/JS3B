@@ -10,7 +10,7 @@ public class Partie {
 	public Partie(){
 		monde = new Monde();
 		vagues= new Vague(monde);
-		abandon = false ;
+		abandon = false;
 	}
 	
 	public void tour() throws InterruptedException{
@@ -18,7 +18,7 @@ public class Partie {
 			monde.refresh();
 			monde.deplacement.deplacement(TEMPS);
 			vagues.shift(1);
-			CalcScore();
+			monde.terrain.bs.setScore(CalcScore());
 				}
 	
 	private int CalcScore(){
