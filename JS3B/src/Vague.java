@@ -14,7 +14,7 @@ public class Vague {
 	private int scoreP =  0 ;
 	public Vague(Monde m){
 		monde = m;
-		decalages = monde.terrain.tableau.length;
+		
 	}
 	public void genererNouvelEnvironnement(){
 		Random Rand= new Random();
@@ -127,6 +127,7 @@ public class Vague {
 		}
 		
 		if( decalages >0){
+			if(decalages >  monde.terrain.tableau.length)
 			if( (decalages % espaceEntreEnnemi) == 2){
 				scoreP ++;
 			}
