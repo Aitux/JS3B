@@ -85,6 +85,9 @@ public class Terrain {
 					if( tableau[l][c].getEnnemi() instanceof TankNazi){ 
 						resultat[l][c] = 7 ;
 					}
+					if( tableau[l][c].getEnnemi() instanceof ObusNazi){ 
+						resultat[l][c] = 32 ;
+					}
 					if( tableau[l][c].getEnnemi() instanceof CroixKKK){ 
 						resultat[l][c] = 8 ;
 					}

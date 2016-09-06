@@ -19,11 +19,19 @@ public class Partie {
 			vagues.shift(1);
 			monde.deplacement.deplacement(TEMPS);
 			monde.terrain.bs.setScore(CalcScore());
+			score=CalcScore();
 			monde.refresh();
 				}
 	
 	private int CalcScore(){
 		score = monde.deplacement.getScoreN() + vagues.getScoreP();
+		return score;
+	}
+	
+	public void setScore(int s){
+		score=s;
+	}
+	public int getScore(){
 		return score;
 	}
 	

@@ -36,7 +36,7 @@ public class Vague {
 	public void genererNazi(){
 		for(int l = 0 ; l < monde.terrain.tableau.length ; l++){
 			for(int c = monde.terrain.tableau[0].length-1 ; c < monde.terrain.tableau[0].length ; c++){
-				monde.terrain.tableau[l][c].setEnnemi(new AvionNazi() ); 
+			
 				if( l == monde.terrain.tableau.length-2 ){
 						monde.terrain.tableau[l][c].setEnnemi(new TankNazi() ); 
 				}
@@ -45,9 +45,10 @@ public class Vague {
 				}
 			}
 		}
-		for (int nbTrou = 0 ;nbTrou < nbPassage; nbTrou++ ){
-			creerPassage();
-		}
+		Random rand = new Random();
+		int ligne = rand.nextInt(3);
+		monde.terrain.tableau[ligne][monde.terrain.tableau[0].length-1].setEnnemi(new AvionNazi() ); 
+		
 		
 	}
 	public void genererKKK(){
@@ -100,6 +101,51 @@ public class Vague {
 		
 	}
 	
+	public boolean isDropObus(){
+		Random rand = new Random();
+		if(rand.nextInt(100) >90){
+			return true;
+		}
+		return false;
+	}
+	
+	public void dropObus(){
+		for(int l = 0 ; l < monde.terrain.tableau.length ; l++){
+			for(int c = 0 ; c < monde.terrain.tableau[0].length-1 ; c++){
+				if(monde.terrain.tableau[l][c].getEnnemi() != null){
+					if(monde.terrain.tableau[l][c].getEnnemi() instanceof AvionNazi){
+						if(isDropObus()){
+							if( (l+1 < monde.terrain.tableau.length-2) && (monde.terrain.tableau[l+1][c].getEnnemi() == null ) )
+							monde.terrain.tableau[l+1][c].setEnnemi(new ObusNazi());
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	public void deplacerObus(){
+		for(int c = 0 ; c < monde.terrain.tableau[0].length-1 ; c++){
+			Integer ligne=null;
+			
+			for(int l = 0 ; l < monde.terrain.tableau.length ; l++){
+				if(monde.terrain.tableau[l][c].getEnnemi() != null){
+					if(monde.terrain.tableau[l][c].getEnnemi() instanceof ObusNazi){
+						if(ligne == null){
+							ligne=l;
+							if( (l+1 < monde.terrain.tableau.length-1) && monde.terrain.tableau[l+1][c].getEnnemi() == null ){
+								monde.terrain.tableau[l+1][c].setEnnemi(new ObusNazi());
+								
+							}
+							monde.terrain.tableau[l][c].setEnnemi(null);
+						}
+					}
+				}
+			}
+		}
+			
+		
+	}
 	public int getScoreP(){
 		return scoreP;
 	}
@@ -175,12 +221,18 @@ public class Vague {
 			}
 		}
 	}
+	
 	public void shift(int nombreDecalage){
 		while( nombreDecalage > 0 ){
 			for(int l = 0 ; l < monde.terrain.tableau.length ; l++){
 				for(int c = 0 ; c < monde.terrain.tableau[0].length-1 ; c++){
 					monde.terrain.tableau[l][c] = monde.terrain.tableau[l][c+1];
+					
 				}
+			}
+			dropObus();
+			if(decalages%3 == 0){
+				deplacerObus();
 			}
 			nouvelleDerniereColonne();
 			decalages += 1 ;
