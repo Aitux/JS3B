@@ -126,19 +126,20 @@ public class Vague {
 	
 	public void deplacerObus(){
 		for(int c = 0 ; c < monde.terrain.tableau[0].length-1 ; c++){
-			Integer ligne=null;
 			
-			for(int l = 0 ; l < monde.terrain.tableau.length ; l++){
+			
+			for(int l = monde.terrain.tableau.length-1 ; l > 0 ; l--){
 				if(monde.terrain.tableau[l][c].getEnnemi() != null){
 					if(monde.terrain.tableau[l][c].getEnnemi() instanceof ObusNazi){
-						if(ligne == null){
-							ligne=l;
+						
+						
+							
 							if( (l+1 < monde.terrain.tableau.length-1) && monde.terrain.tableau[l+1][c].getEnnemi() == null ){
 								monde.terrain.tableau[l+1][c].setEnnemi(new ObusNazi());
 								
 							}
 							monde.terrain.tableau[l][c].setEnnemi(null);
-						}
+						
 					}
 				}
 			}
