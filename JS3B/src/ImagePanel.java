@@ -1,5 +1,12 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Rectangle;
+import java.awt.Shape;
+import java.awt.image.ImageObserver;
+import java.text.AttributedCharacterIterator;
 
 import javax.swing.JPanel;
 
@@ -14,6 +21,11 @@ public class ImagePanel extends JPanel {
 	    this.image = image;
 	    this.iWidth2 = image.getWidth(this)/2;
 	    this.iHeight2 = image.getHeight(this)/2;
+	 
+	    
+	}
+	public void setImage(Image image){
+		this.image = image;
 	}
 	
 	

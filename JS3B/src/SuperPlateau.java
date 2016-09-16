@@ -1,4 +1,4 @@
-import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -17,6 +17,9 @@ public class SuperPlateau {
 	public void affichage(){
 		this.test.affichage();
 		
+	}
+	public void affichage(Dimension dim){
+		this.test.affichage(dim);
 	}
 	public void println(String message){
 		this.test.println(message);

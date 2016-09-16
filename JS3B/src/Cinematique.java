@@ -1,50 +1,43 @@
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class Cinematique extends JFrame {
-	private JFrame frame;
-	private ImagePanel panel1;
 	String[] images ={"cinematique1.png","cinematique2.png","cinematique3.png"};
+	SuperPlateau s;
 	
 	public Cinematique(){
-		frame= new JFrame();
+		s=new SuperPlateau(images,1,1);
+		try {
+			defiler();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		s.close();
 	}
-	public void initialiser(){ //définit la taille de la fenetre et ses autres attributs
-		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		panel1 = new ImagePanel( Toolkit.getDefaultToolkit().createImage(images[0]));
-		
-		frame.setBounds(100, 100, (int) dim.getWidth(), (int) dim.getHeight());
-	    frame.setLocationRelativeTo(null);
-		frame.setUndecorated(true);
-		frame.add(panel1);
-		frame.pack();
-		
 	
-		
-		
-	}
-	public void defilerCinematique(){ //Affiche la premiere image puis après un certain delais affiche la deuxieme et ainsi de suite jusque la derniere images
-		for(int i=0; i<images.length;i++){
-		
-		
-		
+	public void defiler() throws InterruptedException{
+		for(int i =1 ; i<=images.length; i++){
+			int[][] tab= new int[1][1];
+			for(int l=0;l<1;l++){
+				for(int c= 0; c<1;c++){
+					tab[l][c]=i;
+				}
+			}
+			s.setJeu(tab);
+			s.affichage(new Dimension(1920, 1080));
 			
+			Thread.sleep(4000);
 		}
 	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				
-					Cinematique window = new Cinematique();
-					window.setVisible(true);
-				
-			}
-		});
+	public static void main(String[] args){
+		Cinematique cin = new Cinematique();
 	}
 }

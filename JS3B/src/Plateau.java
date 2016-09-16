@@ -156,6 +156,15 @@ public class Plateau {
 		window.setVisible(true);	// Révèle la fenêtre.
 		window.repaint(); 			// Délégué à Swing (appelle indirectement graphic.paintComponent via Swing)
 	}
+	
+	public void affichage(Dimension dim){
+		affichage();
+		window.setPreferredSize(dim);
+		window.getContentPane().setPreferredSize(dim);
+		window.pack();
+		window.setLocationRelativeTo(null);
+	}
+	
 	/**
 	 * prépare l'attente d'événements Swing (clavier ou souris).
 	 * Appelé par waitEvent() et waitEvent(int). 
