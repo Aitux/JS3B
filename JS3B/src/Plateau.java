@@ -186,7 +186,7 @@ public class Plateau {
 	public InputEvent waitEvent(int timeout) {
 		int time = 0 ;
 		prepareWaitEvent() ;
-		while ((currentEvent == null) && (time < timeout) && currentEvent instanceof KeyEvent ) {
+		while ( ((currentEvent == null) || (  currentEvent instanceof KeyEvent))  && (time < timeout)) {
 			
 			try {
 				Thread.sleep(100) ;	// Cette instruction - en plus du délai induit - permet à Swing de traiter les événements GUI 
@@ -195,6 +195,7 @@ public class Plateau {
 			}
 			time += 100 ;
 		}
+		if(currentEvent instanceof KeyEvent) currentEvent=null;
 		return currentEvent ;
 	}
 	

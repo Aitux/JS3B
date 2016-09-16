@@ -17,12 +17,31 @@ public class Partie {
 	public void tour() throws InterruptedException{
 			
 			vagues.shift(1);
+			monde.refresh();
 			monde.deplacement.deplacement(TEMPS);
 			monde.terrain.bs.setScore(CalcScore());
 			score=CalcScore();
 			monde.refresh();
 				}
-	
+	public void lancerPartie(){
+		
+		while(monde.terrain.perso.getNbVies() > 0){
+			try {
+				tour();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		System.out.println(getScore() );
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		monde.p.close();
+	}
 	private int CalcScore(){
 		score = monde.deplacement.getScoreN() + vagues.getScoreP();
 		return score;

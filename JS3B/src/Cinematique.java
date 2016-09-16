@@ -27,7 +27,7 @@ public class Cinematique extends JFrame {
 				}
 			}
 			s.setJeu(tab);
-			s.affichage(new Dimension(1920, 1080));
+			s.affichage(Toolkit.getDefaultToolkit().getScreenSize());
 			
 			Thread.sleep(4000);
 		}

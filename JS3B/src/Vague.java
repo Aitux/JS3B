@@ -7,7 +7,7 @@ public class Vague {
 	ArrayList<Bonus> bonus;
 	Monde monde;
 	private int decalages = 0;
-	private int espaceEntreEnnemi = 10 ;
+	private int espaceEntreEnnemi = 15 ;
 	private int espaceEntreNouvelEnvironnement = 200 ;
 	private int environnement = 3 ; //1 == nazi  || 2== KKK || 3 == Terro
 	private int nbPassage = 6;
@@ -175,12 +175,34 @@ public class Vague {
 		
 		if( decalages >0){
 			if(decalages >  monde.terrain.tableau.length)
-			if( (decalages % espaceEntreEnnemi) == 2){
+			if( (decalages % espaceEntreEnnemi) == monde.terrain.tableau.length-4){
 				scoreP ++;
 			}
 		}
 		
 	}
+	
+	public void nouvelleDerniereColonne(boolean ennemie){
+		genererColonneVierge();
+		if((decalages % espaceEntreNouvelEnvironnement) == 0 ){
+			genererNouvelEnvironnement();
+			
+				
+			
+		}
+		if(ennemie){
+			if( (decalages % espaceEntreEnnemi) == 0 ){
+				genererEnnemi();
+			}
+		}
+		if( decalages >0){
+			if(decalages >  monde.terrain.tableau.length)
+			if( (decalages % espaceEntreEnnemi) == monde.terrain.tableau.length-4){
+				scoreP ++;
+			}
+		}
+	}
+	
 	private void genererColonneVierge() {
 		definirNombreDePassage();
 		for(int l = 0 ; l < monde.terrain.tableau.length ; l++){
@@ -263,7 +285,21 @@ public class Vague {
 			decalages += 1 ;
 			nombreDecalage -= 1 ;
 		}
-		monde.refresh();
+		
+	}
+	public void shift(int nombreDecalage, boolean ennemie){
+		while( nombreDecalage > 0 ){
+			for(int l = 0 ; l < monde.terrain.tableau.length ; l++){
+				for(int c = 0 ; c < monde.terrain.tableau[0].length-1 ; c++){
+					monde.terrain.tableau[l][c] = monde.terrain.tableau[l][c+1];
+					
+				}
+			}
+			
+			nouvelleDerniereColonne(ennemie);
+			decalages += 1 ;
+			nombreDecalage -= 1 ;
+		}
 	}
 
 	

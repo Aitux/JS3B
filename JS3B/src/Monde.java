@@ -20,13 +20,23 @@ public class Monde {
 		p=new SuperPlateau(imagesjeu, HAUTEUR , LONGUEUR);
 		deplacement = new Deplacement(this);
 	}
+	public Monde(Terrain t, SuperPlateau s){
+		terrain = t;
+		p=s;
+	}
 	public void definirTaille(){
-		HAUTEUR = (Toolkit.getDefaultToolkit().getScreenSize().height - 40) / 64;
+		HAUTEUR = Toolkit.getDefaultToolkit().getScreenSize().height / 64;
 		LONGUEUR = Toolkit.getDefaultToolkit().getScreenSize().width / 64;
 	}
 	public void refresh(){
 		p.setJeu(terrain.bs.getJeu(terrain.getJeu()));
 		p.affichage();
+	}
+	public void refresh(int[][] tab){
+		
+			p.setJeu(tab);
+			p.affichage();
+		
 	}
 	
 }
