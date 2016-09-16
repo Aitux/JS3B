@@ -2,6 +2,7 @@
 public class MainJS3B {
 
 	public static void main(String[] args) throws InterruptedException {
+		Cinematique cin = new Cinematique();
 		Partie partie = new Partie();
 		while(partie.monde.terrain.perso.getNbVies() > 0){
 			partie.tour();
