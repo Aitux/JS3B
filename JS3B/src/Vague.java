@@ -7,10 +7,10 @@ public class Vague {
 	ArrayList<Bonus> bonus;
 	Monde monde;
 	private int decalages = 0;
-	private int espaceEntreEnnemi = 15 ;
+	private int espaceEntreEnnemi = 10 ;
 	private int espaceEntreNouvelEnvironnement = 200 ;
 	private int environnement = 3 ; //1 == nazi  || 2== KKK || 3 == Terro
-	private int nbPassage = 5;
+	private int nbPassage = 6;
 	private int scoreP =  0 ;
 	public Vague(Monde m){
 		monde = m;
@@ -182,6 +182,7 @@ public class Vague {
 		
 	}
 	private void genererColonneVierge() {
+		definirNombreDePassage();
 		for(int l = 0 ; l < monde.terrain.tableau.length ; l++){
 			for(int c = monde.terrain.tableau[0].length-1 ; c < monde.terrain.tableau[0].length ; c++){
 				monde.terrain.tableau[l][c] = new Case(new Ciel(false,false));
@@ -222,7 +223,30 @@ public class Vague {
 			}
 		}
 	}
-	
+	public void definirNombreDePassage(){
+		if(scoreP<20){
+			nbPassage = 6;
+		}else{
+			if(scoreP<50){
+				nbPassage = 5;
+			}else{
+				if(scoreP<75){
+					nbPassage = 4;
+				}else{
+					if(scoreP<100){
+						nbPassage = 3;
+					}else{
+						if(scoreP<150){
+							nbPassage = 2;
+						}else{
+								nbPassage =1;
+							
+						}
+					}
+				}
+			}
+		}
+	}
 	public void shift(int nombreDecalage){
 		while( nombreDecalage > 0 ){
 			for(int l = 0 ; l < monde.terrain.tableau.length ; l++){

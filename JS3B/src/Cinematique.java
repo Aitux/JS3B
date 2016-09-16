@@ -14,13 +14,8 @@ public class Cinematique extends JFrame {
 	
 	public Cinematique(){
 		s=new SuperPlateau(images,1,1);
-		try {
-			defiler();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		s.close();
+		
+		
 	}
 	
 	public void defiler() throws InterruptedException{
@@ -36,6 +31,9 @@ public class Cinematique extends JFrame {
 			
 			Thread.sleep(4000);
 		}
+	}
+	public void close(){
+		s.close();
 	}
 	public static void main(String[] args){
 		Cinematique cin = new Cinematique();
