@@ -2,7 +2,7 @@
 public class MainJS3B {
 
 	public static void main(String[] args) throws InterruptedException {
-		//lancerCinematique();
+		lancerCinematique();
 		
 		int choix=0;
 		do{
