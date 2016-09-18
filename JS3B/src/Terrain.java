@@ -1,12 +1,10 @@
 public class Terrain {
 	Case[][] tableau;
 	Personnage perso;
-	BarreScore bs;
 	
 	Terrain(int l, int c){
 		tableau = new Case[l][c];
 		perso = new Hero();
-		bs = new BarreScore(this);
 		perso.setCoordonnees(new Coordonnees( l/2 , 3 )); //placement temporaire;
 		initialiser();
 		tableau[l/2][3].setPerso(perso);
