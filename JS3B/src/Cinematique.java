@@ -1,4 +1,5 @@
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -16,15 +17,16 @@ public class Cinematique extends JFrame {
 	public void defiler(){
 		for(int i =0;i<images.length;i++){
 			ImagePanel panel=null;
+			BufferedImage img = null;
 			try {
-				panel = new ImagePanel(ImageIO.read(new File(images[i]))  );
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+			    img = ImageIO.read(new File(images[i]));
+			    panel = new ImagePanel(img) ;
+			} catch (IOException e) {
 			}
+			
 			System.out.println(images[i]);
 			if(panel != null){
-			this.getContentPane().add(panel);
+				this.getContentPane().add(panel);
 			}
 			
 			try {
