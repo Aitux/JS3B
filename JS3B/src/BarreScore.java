@@ -3,10 +3,12 @@ public class BarreScore{
 	private Integer score = 0;
 	private int HP;
 	private Terrain terrain;
+	private int meilleurScore;
 	
-	public BarreScore(Terrain terrain){
+	public BarreScore(Terrain terrain, int mScore){
 		this.terrain = terrain;
 		HP = terrain.perso.getNbVies();
+		meilleurScore = mScore;
 	}
 	
 	public int[] scoreToArray(Integer score){
