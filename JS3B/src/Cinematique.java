@@ -3,7 +3,7 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 public class Cinematique extends JFrame {
-	String[] images ={"cinematique1.png","cinematique2.png","cinematique3.png"};
+	String[] images ={"cinematique1.png","cinematique2.png","cinematique3.png","cinematique4.png"};
 	SuperPlateau s;
 	
 	public Cinematique(){
