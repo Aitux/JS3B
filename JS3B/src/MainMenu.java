@@ -21,9 +21,9 @@ public class MainMenu{
 	int[] coordonneQuit=new int[2];
 	
 	
-	public MainMenu(){
+	public MainMenu(int meilleurScore){
 		definirTaille();
-		t = new Terrain( HAUTEUR , LONGUEUR) ;
+		t = new Terrain( HAUTEUR , LONGUEUR,meilleurScore) ;
 		s=new SuperPlateau(imagesjeu, HAUTEUR , LONGUEUR);
 		m=new Monde(t,s);
 		v=new Vague(m);
