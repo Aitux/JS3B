@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Terrain {
 	Case[][] tableau;
 	Personnage perso;
