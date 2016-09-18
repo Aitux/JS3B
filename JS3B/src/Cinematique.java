@@ -25,6 +25,7 @@ public class Cinematique extends JFrame {
 			
 			Thread.sleep(6000);
 		}
+		
 	}
 	public void close(){
 		s.close();

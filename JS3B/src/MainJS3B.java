@@ -5,6 +5,7 @@ public class MainJS3B {
 	public static void main(String[] args) {
 		lancerCinematique();
 		
+		
 		int choix=0;
 		do{
 		choix=0;
@@ -15,6 +16,7 @@ public class MainJS3B {
 			
 			Partie p = new Partie();
 			p.lancerPartie();
+			System.out.println("Meilleur score :"+p.getMeilleurScore());
 		}else{
 			if(choix == 2){
 				System.exit(0);

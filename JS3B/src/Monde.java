@@ -40,5 +40,7 @@ public class Monde {
 			p.affichage();
 		
 	}
-	
+	public void close(){
+		p.close();
+	}
 }
