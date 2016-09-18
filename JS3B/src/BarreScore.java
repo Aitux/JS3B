@@ -23,9 +23,9 @@ public class BarreScore{
 		public int[][] getJeu(int[][] jeu){
 			setHP(terrain.perso.getNbVies());
 			
-			int[][] barS = new int[jeu.length+10][jeu[0].length];
+			int[][] barS = new int[jeu.length+1][jeu[0].length];
 			for(int i = 0;i<barS[0].length;i++){
-				barS[0][i] = 1;
+				barS[0][i] = 0;
 				System.out.println(barS[0][i]);
 			}
 			
