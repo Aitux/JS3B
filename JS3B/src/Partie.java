@@ -5,13 +5,15 @@ public class Partie {
 	private Vague vagues;
 	private boolean abandon;
 	private int score;
+	private static int meilleurScore;
 	static int TEMPS=1;
 	
 	public Partie(){
 		monde = new Monde();
 		vagues= new Vague(monde);
 		abandon = false;
-		barreScore = new BarreScore(monde.terrain);
+		barreScore = new BarreScore(monde.terrain,meilleurScore);
+		
 	}
 	
 	public void tour() throws InterruptedException{
@@ -33,6 +35,7 @@ public class Partie {
 				e.printStackTrace();
 			}
 		}
+		verifierMeilleurScore();
 		System.out.println(getScore() );
 		try {
 			Thread.sleep(2000);
@@ -41,6 +44,11 @@ public class Partie {
 			e.printStackTrace();
 		}
 		monde.p.close();
+	}
+	public void verifierMeilleurScore(){
+		if(score>meilleurScore){
+			meilleurScore=score;
+		}
 	}
 	private int CalcScore(){
 		score = monde.deplacement.getScoreN() + vagues.getScoreP();
@@ -62,6 +70,14 @@ public class Partie {
 		System.out.println(p.CalcScore());
 		Thread.sleep(2000);
 		p.monde.p.close();
+	}
+
+	public int getMeilleurScore() {
+		return meilleurScore;
+	}
+
+	public void setMeilleurScore(int meilleurScore) {
+		this.meilleurScore = meilleurScore;
 	}
 }
 
