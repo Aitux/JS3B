@@ -11,7 +11,7 @@ public class BarreScore{
 		meilleurScore = mScore;
 	}
 	
-	public int[] scoreToArray(){
+	public int[] scoreToArray(Integer score){
 		if(score < 999){
 		String s = score.toString();
 		int[] rep = new int[s.length()];
@@ -38,8 +38,8 @@ public class BarreScore{
 			for(int i = 0;i<HP;i++){
 				barS[0][i] = 31; // 0 i 
 			}
-		for(int i = 0; i<scoreToArray().length;i++){
-				int[] tabS = scoreToArray();
+		for(int i = 0; i<scoreToArray(this.score).length;i++){
+				int[] tabS = scoreToArray(this.score);
 				switch(tabS[i]){
 				case 0: barS[0][i+(barS[0].length/2)] = 19;break;
 				case 1: barS[0][i+(barS[0].length/2)] = 20;break;
@@ -58,7 +58,6 @@ public class BarreScore{
 					barS[l+1][c]= jeu[l][c];
 				}
 			}
-		
 			
 			return barS ;
 		}

@@ -3,6 +3,7 @@ public class Terrain {
 	Personnage perso;
 	BarreScore bs;
 	
+	
 	Terrain(int l, int c, int meilleurScore){
 		tableau = new Case[l][c];
 		perso = new Hero();
