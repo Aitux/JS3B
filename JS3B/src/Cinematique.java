@@ -30,18 +30,21 @@ public class Cinematique extends JFrame {
 		}
 		    return null;
 		}
+	
 	public void defiler(){
+		ImagePanel panel=null;
 		for(int i =0;i<images.length;i++){
-			ImagePanel panel=null;
+			
 			BufferedImage img = getImage(images[i]);
 			panel = new ImagePanel(img) ;
 			System.out.println(images[i]);
 			if(panel != null){
 				System.out.println("Le panel n'est pas vide");
-				this.getContentPane().add(panel);
+				this.add(panel);
+				panel.repaint();
+				this.validate();
 				this.repaint();
 			}
-			
 			try {
 				Thread.sleep(6000);
 			} catch (InterruptedException e) {

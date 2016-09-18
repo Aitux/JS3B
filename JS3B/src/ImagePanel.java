@@ -15,6 +15,13 @@ public class ImagePanel extends JPanel  {
         System.out.println(this.getSize().getWidth()+" x "+this.getSize().getHeight());
     }
     public ImagePanel() {
+    	super();
+        this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
+        this.setBackground(Color.BLACK);
+        setVisible(true);
+        this.repaint();
+        
+        System.out.println(this.getSize().getWidth()+" x "+this.getSize().getHeight());
     }
     public void setImage(Image image){
         this.image = image;
@@ -25,9 +32,7 @@ public class ImagePanel extends JPanel  {
     
     public void paintComponent(Graphics g) {
         super.paintComponent(g); //paint background
-        System.out.println("toto");
         if (image != null) { //there is a picture: draw it
-        	System.out.println("titi");
             int height = Toolkit.getDefaultToolkit().getScreenSize().height;
             int width = Toolkit.getDefaultToolkit().getScreenSize().width;
             //g.drawImage(image, 0, 0, this); //use image size          
