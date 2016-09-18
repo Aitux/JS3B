@@ -32,12 +32,7 @@ public class MainJS3B {
 	
 	public static void lancerCinematique(){
 		Cinematique cin = new Cinematique();
-		try {
-			cin.defiler();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		cin.close();
+		cin.defiler();
+		
 	}
 }

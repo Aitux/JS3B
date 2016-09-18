@@ -1,36 +1,36 @@
 import java.awt.Toolkit;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class Cinematique extends JFrame {
 	String[] images ={"cinematique1.png","cinematique2.png","cinematique3.png","cinematique4.png"};
-	SuperPlateau s;
 	
 	public Cinematique(){
-		s=new SuperPlateau(images,1,1);
-		
-		
+		this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
+		this.setUndecorated(true);
+		this.setVisible(true);
+	}
+	public void defiler(){
+		for(int i =0;i<images.length;i++){
+			ImagePanel panel = new ImagePanel(new ImageIcon(images[i]).getImage());
+			System.out.println(images[i]);
+			this.getContentPane().add(panel);
+			
+			
+			try {
+				Thread.sleep(6000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		this.dispose();
 	}
 	
-	public void defiler() throws InterruptedException{
-		for(int i =1 ; i<=images.length; i++){
-			int[][] tab= new int[1][1];
-			for(int l=0;l<1;l++){
-				for(int c= 0; c<1;c++){
-					tab[l][c]=i;
-				}
-			}
-			s.setJeu(tab);
-			s.affichage(Toolkit.getDefaultToolkit().getScreenSize());
-			
-			Thread.sleep(6000);
-		}
-		
-	}
-	public void close(){
-		s.close();
-	}
+	
 	public static void main(String[] args){
 		Cinematique cin = new Cinematique();
+		cin.defiler();
 	}
 }
