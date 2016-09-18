@@ -1,11 +1,5 @@
-import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Toolkit;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
 
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 public class Cinematique extends JFrame {
@@ -29,7 +23,7 @@ public class Cinematique extends JFrame {
 			s.setJeu(tab);
 			s.affichage(Toolkit.getDefaultToolkit().getScreenSize());
 			
-			Thread.sleep(4000);
+			Thread.sleep(6000);
 		}
 	}
 	public void close(){

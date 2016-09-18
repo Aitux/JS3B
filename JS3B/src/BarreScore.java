@@ -35,6 +35,7 @@ public class BarreScore{
 			switch(tabS[i]){
 			case 0: barS[0][i+8] = 19; break;
 			case 1: barS[0][i+8] = 20;break;
+			
 			case 2: barS[0][i+8] = 21;break;
 			case 3: barS[0][i+8] = 22;break;
 			case 4: barS[0][i+8] = 23;break;
