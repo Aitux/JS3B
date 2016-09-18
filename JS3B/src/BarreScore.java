@@ -53,11 +53,28 @@ public class BarreScore{
 				case 9: barS[0][i+(barS[0].length/2)] = 28;break;
 				}
 			}
+		
+		for(int i = 0; i<scoreToArray(this.meilleurScore).length;i++){
+			int[] tabS = scoreToArray(this.meilleurScore);
+			switch(tabS[i]){
+			case 0: barS[0][i+(barS[0].length - 5)] = 19;break;
+			case 1: barS[0][i+(barS[0].length - 5)] = 20;break;
+			case 2: barS[0][i+(barS[0].length - 5)] = 21;break;
+			case 3: barS[0][i+(barS[0].length - 5)] = 22;break;
+			case 4: barS[0][i+(barS[0].length - 5)] = 23;break;
+			case 5: barS[0][i+(barS[0].length - 5)] = 24;break;
+			case 6: barS[0][i+(barS[0].length - 5)] = 25;break;
+			case 7: barS[0][i+(barS[0].length - 5)] = 26;break;
+			case 8: barS[0][i+(barS[0].length - 5)] = 27;break;
+			case 9: barS[0][i+(barS[0].length - 5)] = 28;break;
+			}
+		}
 			for( int l = 0; l<jeu.length; l++){
 				for(int c = 0 ; c<jeu[0].length ; c++){
 					barS[l+1][c]= jeu[l][c];
 				}
 			}
+			
 			
 			return barS ;
 		}
