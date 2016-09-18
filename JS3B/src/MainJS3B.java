@@ -23,7 +23,7 @@ public class MainJS3B {
 			}
 		}
 		}while(choix != 2);
-		
+		 
 	
 		
 		

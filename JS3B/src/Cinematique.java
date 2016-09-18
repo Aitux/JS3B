@@ -37,9 +37,9 @@ public class Cinematique extends JFrame {
 			
 			BufferedImage img = getImage(images[i]);
 			panel = new ImagePanel(img) ;
-			System.out.println(images[i]);
+			
 			if(panel != null){
-				System.out.println("Le panel n'est pas vide");
+				
 				this.add(panel);
 				panel.repaint();
 				
