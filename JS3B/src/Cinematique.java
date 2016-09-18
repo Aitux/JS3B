@@ -1,7 +1,9 @@
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -14,19 +16,30 @@ public class Cinematique extends JFrame {
 		this.setUndecorated(true);
 		this.setVisible(true);
 	}
+	private BufferedImage getImage(String filename) {
+		// This time, you can use an InputStream to load
+		try {
+		        // Grab the InputStream for the image.                    
+		        InputStream in = getClass().getResourceAsStream(filename);
+
+		    // Then read it in.
+		    return ImageIO.read(in);
+		} catch (IOException e) {
+		    System.out.println("L'image n'a pu être chargé.");
+		    //System.exit(1);
+		}
+		    return null;
+		}
 	public void defiler(){
 		for(int i =0;i<images.length;i++){
 			ImagePanel panel=null;
-			BufferedImage img = null;
-			try {
-			    img = ImageIO.read(new File(images[i]));
-			    panel = new ImagePanel(img) ;
-			} catch (IOException e) {
-			}
-			
+			BufferedImage img = getImage(images[i]);
+			panel = new ImagePanel(img) ;
 			System.out.println(images[i]);
 			if(panel != null){
+				System.out.println("Le panel n'est pas vide");
 				this.getContentPane().add(panel);
+				this.repaint();
 			}
 			
 			try {
