@@ -56,7 +56,7 @@ public class BarreScore{
 					barS[l+1][c]= jeu[l][c];
 				}
 			}
-			for(int i = 0 ; i<barS.length; i++){
+			for(int i = 0 ; i<barS[0].length; i++){
 				if(barS[0][i] == 0) barS[0][i] = 1;
 			}
 			
