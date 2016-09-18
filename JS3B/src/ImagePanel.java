@@ -12,7 +12,7 @@ public class ImagePanel extends JPanel  {
         setVisible(true);
         this.repaint();
         
-        System.out.println(this.getSize().getWidth()+" x "+this.getSize().getHeight());
+      
     }
     public ImagePanel() {
     	super();
