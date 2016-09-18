@@ -103,7 +103,7 @@ public class Vague {
 	
 	public boolean isDropObus(){
 		Random rand = new Random();
-		if(rand.nextInt(100) >90){
+		if(rand.nextInt(100) >80){
 			return true;
 		}
 		return false;
@@ -116,7 +116,7 @@ public class Vague {
 					if(monde.terrain.tableau[l][c].getEnnemi() instanceof AvionNazi){
 						if(isDropObus()){
 							if( (l+1 < monde.terrain.tableau.length-2) && (monde.terrain.tableau[l+1][c].getEnnemi() == null ) )
-							monde.terrain.tableau[l+1][c].setEnnemi(new ObusNazi());
+							monde.terrain.tableau[l+2][c].setEnnemi(new ObusNazi());
 						}
 					}
 				}
