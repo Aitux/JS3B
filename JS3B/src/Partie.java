@@ -9,7 +9,7 @@ public class Partie {
 	static int TEMPS=1;
 	
 	public Partie(){
-		monde = new Monde();
+		monde = new Monde(meilleurScore);
 		vagues= new Vague(monde);
 		abandon = false;
 		barreScore = new BarreScore(monde.terrain,meilleurScore);

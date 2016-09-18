@@ -1,6 +1,6 @@
 
 public class MainJS3B {
-	
+		
 	
 	public static void main(String[] args) {
 		lancerCinematique();
@@ -8,7 +8,7 @@ public class MainJS3B {
 		int choix=0;
 		do{
 		choix=0;
-		MainMenu menu = new MainMenu();
+		MainMenu menu = new MainMenu(new Partie().getMeilleurScore());
 		choix=menu.waitChoice();
 		
 		if(choix == 1){
