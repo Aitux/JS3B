@@ -75,7 +75,8 @@ public class BarreScore{
 				}
 			}
 			
-			
+			barS[0][(barS[0].length - 7)] = 29;
+			barS[0][(barS[0].length - 6)] = 30;
 			return barS ;
 		}
 	
