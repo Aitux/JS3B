@@ -42,8 +42,7 @@ public class Cinematique extends JFrame {
 				System.out.println("Le panel n'est pas vide");
 				this.add(panel);
 				panel.repaint();
-				this.validate();
-				this.repaint();
+				
 			}
 			try {
 				Thread.sleep(6000);
