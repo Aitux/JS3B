@@ -43,7 +43,7 @@ public class Partie {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		monde.close();
+		monde.close(); 
 	}
 	public void verifierMeilleurScore(){
 		if(score>meilleurScore){
