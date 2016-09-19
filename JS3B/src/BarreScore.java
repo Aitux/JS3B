@@ -41,16 +41,16 @@ public class BarreScore{
 		for(int i = 0; i<scoreToArray(this.score).length;i++){
 				int[] tabS = scoreToArray(this.score);
 				switch(tabS[i]){
-				case 0: barS[0][i+(barS[0].length/2)] = 19;break;
-				case 1: barS[0][i+(barS[0].length/2)] = 20;break;
-				case 2: barS[0][i+(barS[0].length/2)] = 21;break;
-				case 3: barS[0][i+(barS[0].length/2)] = 22;break;
-				case 4: barS[0][i+(barS[0].length/2)] = 23;break;
-				case 5: barS[0][i+(barS[0].length/2)] = 24;break;
-				case 6: barS[0][i+(barS[0].length/2)] = 25;break;
-				case 7: barS[0][i+(barS[0].length/2)] = 26;break;
-				case 8: barS[0][i+(barS[0].length/2)] = 27;break;
-				case 9: barS[0][i+(barS[0].length/2)] = 28;break;
+				case 0: barS[0][i+(barS[0].length/2)-2] = 19;break;
+				case 1: barS[0][i+(barS[0].length/2)-2] = 20;break;
+				case 2: barS[0][i+(barS[0].length/2)-2] = 21;break;
+				case 3: barS[0][i+(barS[0].length/2)-2] = 22;break;
+				case 4: barS[0][i+(barS[0].length/2)-2] = 23;break;
+				case 5: barS[0][i+(barS[0].length/2)-2] = 24;break;
+				case 6: barS[0][i+(barS[0].length/2)-2] = 25;break;
+				case 7: barS[0][i+(barS[0].length/2)-2] = 26;break;
+				case 8: barS[0][i+(barS[0].length/2)-2] = 27;break;
+				case 9: barS[0][i+(barS[0].length/2)-2] = 28;break;
 				}
 			}
 		
