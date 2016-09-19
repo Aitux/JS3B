@@ -6,7 +6,7 @@ public class Partie {
 	private boolean abandon;
 	private int score;
 	private static int meilleurScore;
-	static int TEMPS=1;
+	static int TEMPS=150;
 	
 	public Partie(){
 		monde = new Monde(meilleurScore);
