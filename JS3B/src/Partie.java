@@ -6,7 +6,7 @@ public class Partie {
 	private boolean abandon;
 	private int score;
 	private static int meilleurScore;
-	static int TEMPS=150;
+	static int TEMPS=100;
 	
 	public Partie(){
 		monde = new Monde(meilleurScore);
@@ -51,7 +51,7 @@ public class Partie {
 		}
 	}
 	private int CalcScore(){
-		score = monde.deplacement.getScoreN() + vagues.getScoreP();
+		score = vagues.getScoreP();
 		return score;
 	}
 	

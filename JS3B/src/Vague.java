@@ -22,7 +22,7 @@ public class Vague {
 	private int scoreP =  0 ;
 	public Vague(Monde m){
 		monde = m;
-		decalages=monde.terrain.tableau[0].length-4;
+		decalages=monde.terrain.tableau[0].length-3;
 	}
 	public void genererNouvelEnvironnement(){
 		Random Rand= new Random();
@@ -181,26 +181,69 @@ public class Vague {
 			genererEnnemi();
 		}
 		
-		if( decalages >0){
-			if(decalages >  monde.terrain.tableau.length)
-			if( (decalages % espaceEntreEnnemi) == 1){
-				scoreP ++;
-				 try {
-			         // Open an audio input stream.
-			         URL url = this.getClass().getClassLoader().getResource("success.wav");
-			         AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
-			         // Get a sound clip resource.
-			         Clip clip = AudioSystem.getClip();
-			         // Open audio clip and load samples from the audio input stream.
-			         clip.open(audioIn);
-			         clip.start();
-			      } catch (UnsupportedAudioFileException e) {
-			         e.printStackTrace();
-			      } catch (IOException e) {
-			         e.printStackTrace();
-			      } catch (LineUnavailableException e) {
-			         e.printStackTrace();
-			      }
+		if(percuteOiseaux()){
+			monde.terrain.perso.setNbVies(monde.terrain.perso.getNbVies()-1);
+			 try {
+		         // Open an audio input stream.
+		         URL url = this.getClass().getClassLoader().getResource("oiseau.wav");
+		         AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+		         // Get a sound clip resource.
+		         Clip clip = AudioSystem.getClip();
+		         // Open audio clip and load samples from the audio input stream.
+		         clip.open(audioIn);
+		         clip.start();
+		      } catch (UnsupportedAudioFileException e) {
+		         e.printStackTrace();
+		      } catch (IOException e) {
+		         e.printStackTrace();
+		      } catch (LineUnavailableException e) {
+		         e.printStackTrace();
+		      }
+		}
+		
+		
+		if( decalages/espaceEntreEnnemi > 2){
+			
+			if( (presenceEnnemie())){
+				
+				if(eviteEnnemi()){
+				
+					scoreP += 1;
+					 try {
+				         // Open an audio input stream.
+				         URL url = this.getClass().getClassLoader().getResource("success.wav");
+				         AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+				         // Get a sound clip resource.
+				         Clip clip = AudioSystem.getClip();
+				         // Open audio clip and load samples from the audio input stream.
+				         clip.open(audioIn);
+				         clip.start();
+				      } catch (UnsupportedAudioFileException e) {
+				         e.printStackTrace();
+				      } catch (IOException e) {
+				         e.printStackTrace();
+				      } catch (LineUnavailableException e) {
+				         e.printStackTrace();
+				      }
+				}else{
+					monde.terrain.perso.setNbVies(monde.terrain.perso.getNbVies()-1);
+					 try {
+				         // Open an audio input stream.
+				         URL url = this.getClass().getClassLoader().getResource("ennemi.wav");
+				         AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+				         // Get a sound clip resource.
+				         Clip clip = AudioSystem.getClip();
+				         // Open audio clip and load samples from the audio input stream.
+				         clip.open(audioIn);
+				         clip.start();
+				      } catch (UnsupportedAudioFileException e) {
+				         e.printStackTrace();
+				      } catch (IOException e) {
+				         e.printStackTrace();
+				      } catch (LineUnavailableException e) {
+				         e.printStackTrace();
+				      }
+				}
 			}
 		}
 		
@@ -325,6 +368,31 @@ public class Vague {
 			nombreDecalage -= 1 ;
 		}
 	}
-
+	
+	public boolean presenceEnnemie(){
+		boolean ennemi=false;
+		for(int l=0; l<monde.terrain.tableau.length;l++){
+			if(monde.terrain.tableau[l][3].getEnnemi() != null){
+				return true;
+			}
+		}
+		return ennemi;
+	}
+	
+	public boolean eviteEnnemi(){
+		boolean correcte=true;
+		
+		if(monde.terrain.tableau[monde.terrain.perso.getAbscisse()][monde.terrain.perso.getOrdonnee()].getEnnemi() !=null  )  {
+			return false;
+		}
+			
+		
+		return correcte;
+	}
+	public boolean percuteOiseaux(){
+		return( ( (Ciel) (monde.terrain.tableau[monde.terrain.perso.getAbscisse()][monde.terrain.perso.getOrdonnee()].getElement())).isOiseaux());
+			
+		
+	}
 	
 }
