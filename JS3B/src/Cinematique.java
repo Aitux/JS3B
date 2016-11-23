@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 public class Cinematique extends JFrame {
-	String[] images ={"cinematique1.png","cinematique2.png","cinematique3.png","cinematique4.png"};
+	String[] images ={"cinematique1.png","cinematique2.png","cinematique3.png","cinematique4.png","cinematique5.png","cinematique6.png","cinematique7.png"};
 	
 	public Cinematique(){
 		this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
