@@ -22,7 +22,7 @@ public class Monde {
 	public Monde(int meilleurScore){
 		definirTaille();
 		terrain = new Terrain( HAUTEUR - 1 , LONGUEUR, meilleurScore) ;
-		setP(new SuperPlateau(imagesjeu, HAUTEUR , LONGUEUR));
+		
 		deplacement = new Deplacement(this);
 		
 	}

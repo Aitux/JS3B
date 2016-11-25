@@ -18,7 +18,7 @@ public class MainJS3B {
 		
 		if(choix == 1){
 			
-			
+			p.reset(menu.s);
 			p.lancerPartie();
 			
 		}else{

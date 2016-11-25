@@ -1,5 +1,7 @@
 package Partie;
 
+import Utilitaire.SuperPlateau;
+
 public class Partie {
 
 	Monde monde;
@@ -81,6 +83,16 @@ public class Partie {
 
 	public void setMeilleurScore(int meilleurScore) {
 		this.meilleurScore = meilleurScore;
+	}
+
+	public void reset(SuperPlateau s) {
+		
+		score = 0;
+		monde = new Monde(meilleurScore);
+		monde.setP(s);
+		vagues= new Vague(monde);
+		barreScore = new BarreScore(monde.terrain,meilleurScore);
+		
 	}
 }
 
