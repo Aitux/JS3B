@@ -78,6 +78,7 @@ public class MainMenu{
 			}
 			
 		}while( choix<1 || choix>2);
+		m.close();
 		return choix;
 	}
 	

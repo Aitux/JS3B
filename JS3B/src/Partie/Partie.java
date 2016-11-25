@@ -11,6 +11,7 @@ public class Partie {
 	static int TEMPS=100;
 	
 	public Partie(){
+		meilleurScore=0;
 		monde = new Monde(meilleurScore);
 		vagues= new Vague(monde);
 		abandon = false;
